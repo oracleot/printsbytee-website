@@ -38,7 +38,8 @@ export function Sparkles({
 
   useEffect(() => {
     const generateStars = () => {
-      const newStars = Array.from({ length: maxStars }, (_, i) => ({
+      const starCount = Math.round(maxStars * starDensity);
+      const newStars = Array.from({ length: starCount }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
@@ -50,7 +51,7 @@ export function Sparkles({
       setStars(newStars);
     };
     generateStars();
-  }, [starColor, starSize, starDensity, maxStars, speed, opacity]);
+  }, [starSize, starDensity, maxStars, speed, opacity]);
 
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} style={style}>
