@@ -162,35 +162,6 @@ export function StickyScrollReveal() {
                 </span>
               </div>
             </motion.div>
-
-            {/* Visual accent block */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="relative aspect-[16/9] rounded-xl overflow-hidden"
-            >
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(135deg, #C75B39 0%, #1B4D3E 50%, #0D0D0D 100%)",
-                }}
-              />
-              <div className="absolute inset-0 opacity-10">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <pattern id="accent-diamond" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-                    <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="none" stroke="#F5F0E8" strokeWidth="0.5" />
-                  </pattern>
-                  <rect width="100%" height="100%" fill="url(#accent-diamond)" />
-                </svg>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-heading text-cream/60 text-sm tracking-[0.2em] uppercase">
-                  Bold · Beautiful · Heritage
-                </span>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>
