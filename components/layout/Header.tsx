@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
+import { MobileMenu } from "./MobileMenu";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -24,20 +25,13 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isMobileMenuOpen]);
 
@@ -60,6 +54,9 @@ export function Header() {
                 className="h-12 w-auto"
                 priority
               />
+              <span className="hidden sm:inline font-serif text-xl font-semibold text-black tracking-wide">
+                PrintsbyTee
+              </span>
             </Link>
 
             {/* Desktop Nav */}
@@ -104,11 +101,10 @@ export function Header() {
         </div>
       </header>
 
-      {/* Full-height Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
@@ -118,86 +114,7 @@ export function Header() {
               className="fixed inset-0 z-[55] bg-black/40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-
-            {/* Slide-out panel */}
-            <motion.div
-              key="menu"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-              className="fixed top-0 right-0 bottom-0 z-[60] w-4/5 max-w-sm bg-cream flex flex-col md:hidden shadow-2xl"
-            >
-              {/* Menu header */}
-              <div className="flex items-center justify-between px-6 h-20 border-b border-border">
-                <Link
-                  href="/"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center"
-                >
-                  <Image
-                    src="/logo.svg"
-                    alt="PrintsbyTee"
-                    width={40}
-                    height={40}
-                    className="h-10 w-auto"
-                  />
-                </Link>
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-black"
-                  aria-label="Close menu"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              {/* Nav links */}
-              <nav className="flex flex-col flex-1 px-8 pt-10 gap-2">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.07 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="block font-heading text-3xl font-bold text-black hover:text-gold transition-colors py-3 border-b border-border/40"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-
-              {/* Social icons */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.35 }}
-                className="px-8 pb-10"
-              >
-                <p className="text-xs tracking-[0.2em] uppercase text-gold font-medium mb-4">
-                  Follow Us
-                </p>
-                <div className="flex items-center gap-5">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-black hover:text-gold transition-colors"
-                      aria-label={social.label}
-                    >
-                      <social.Icon className="w-6 h-6" />
-                    </a>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
+            <MobileMenu onClose={() => setIsMobileMenuOpen(false)} />
           </>
         )}
       </AnimatePresence>
