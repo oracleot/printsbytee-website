@@ -10,9 +10,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
+  { href: "https://www.instagram.com/printsbytee.uk/", label: "Instagram", Icon: InstagramIcon },
+  { href: "https://www.facebook.com/profile.php?id=61578467193848", label: "Facebook", Icon: FacebookIcon },
+  { href: "https://www.tiktok.com/@printsbytee_uk", label: "TikTok", Icon: TikTokIcon },
 ];
 
 export function Footer() {

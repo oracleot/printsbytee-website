@@ -12,9 +12,9 @@ function normalizePhoneNumber(raw?: string): string | undefined {
 }
 
 const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
+  { href: "https://www.instagram.com/printsbytee.uk/", label: "Instagram", Icon: InstagramIcon },
+  { href: "https://www.facebook.com/profile.php?id=61578467193848", label: "Facebook", Icon: FacebookIcon },
+  { href: "https://www.tiktok.com/@printsbytee_uk", label: "TikTok", Icon: TikTokIcon },
 ];
 
 export function ContactInfo() {
@@ -64,7 +64,7 @@ export function ContactInfo() {
           <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/20 transition-colors">
             <Phone className="w-5 h-5 text-gold" />
           </div>
-          <span>WhatsApp: +44 7000 000000</span>
+          <span>WhatsApp: {process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY_NUMBER ?? "+44 7000 000000"}</span>
         </a>
       </div>
 
