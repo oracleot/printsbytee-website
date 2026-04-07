@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "600", "700"],
 });
 
 const dmSans = DM_Sans({

@@ -82,7 +82,7 @@ export function HeroParallax() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
-          className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black text-cream mb-8 leading-[0.9] tracking-tight"
+          className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold text-cream mb-8 leading-[0.9] tracking-tight"
           style={{ textShadow: "0 2px 30px rgba(0,0,0,0.5), 0 1px 8px rgba(0,0,0,0.3)" }}
         >
           WEAR YOUR{" "}
