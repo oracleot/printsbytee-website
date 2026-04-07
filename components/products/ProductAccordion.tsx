@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { getCategoryLabel, type Product } from "@/lib/products";
 
 interface ProductAccordionProps {
-  category: string;
+  category: Product["category"];
   sizes: string[];
 }
 
@@ -14,7 +14,7 @@ export function ProductAccordion({ category, sizes }: ProductAccordionProps) {
       <AccordionItem value="product-details">
         <AccordionTrigger className="text-sm font-medium">Product Details</AccordionTrigger>
         <AccordionContent className="text-sm text-black/70 space-y-2">
-          <p><strong>Category:</strong> {getCategoryLabel(category as Product["category"])}</p>
+          <p><strong>Category:</strong> {getCategoryLabel(category)}</p>
           <p><strong>Available Sizes:</strong> {sizes.join(", ")}</p>
           <p><strong>Material:</strong> Premium African print fabric with cotton blend</p>
           <p><strong>Closure:</strong> Zip and button fastening</p>
