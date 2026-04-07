@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
 import { PatternDivider } from "@/components/shared/PatternDivider";
 
@@ -17,21 +18,24 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-black text-cream">
+      {/* Adinkra pattern divider at top of footer */}
+      <PatternDivider />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PatternDivider />
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-12">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2">
-              <svg viewBox="0 0 100 60" className="h-10 w-16" fill="currentColor">
-                <text x="0" y="45" fontFamily="serif" fontSize="42" fontWeight="bold" fill="#F5F0E8">P</text>
-                <text x="30" y="45" fontFamily="serif" fontSize="42" fontWeight="bold" fill="#C9A84C">b</text>
-                <text x="50" y="45" fontFamily="serif" fontSize="42" fontWeight="bold" fill="#F5F0E8">T</text>
-              </svg>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/logo.svg"
+                alt="PrintsbyTee"
+                width={48}
+                height={48}
+                className="h-12 w-auto brightness-0 invert"
+              />
               <span className="font-heading text-xl font-bold text-cream">PrintsbyTee</span>
             </Link>
-            <p className="text-cream/70 text-sm leading-relaxed">
+            <p className="text-cream/70 text-sm leading-relaxed max-w-xs">
               Ready-to-Wear fashion for bold and beautiful African women. Premium African prints with contemporary style.
             </p>
           </div>
@@ -54,18 +58,20 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Get in Touch */}
           <div>
             <h3 className="font-heading text-sm font-bold tracking-wider uppercase text-gold mb-4">
               Get in Touch
             </h3>
             <div className="space-y-3">
-              <a 
+              <a
                 href="mailto:hello@printsbytee.co.uk"
                 className="block text-sm text-cream/70 hover:text-gold transition-colors"
               >
                 hello@printsbytee.co.uk
               </a>
+
+              {/* Social Icons */}
               <div className="flex items-center gap-4 pt-2">
                 {socialLinks.map((social) => (
                   <a
@@ -89,7 +95,7 @@ export function Footer() {
           <p className="text-xs text-cream/50">
             © {new Date().getFullYear()} PrintsbyTee. All rights reserved.
           </p>
-          <p className="text-xs text-cream/50">
+          <p className="text-xs text-cream/50 italic">
             Ready-to-Wear
           </p>
         </div>
