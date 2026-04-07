@@ -72,7 +72,7 @@ export function ProductGrid({ products }: ProductGridProps) {
               No products found
             </h3>
             <p className="text-black/60">
-              We couldn't find any products in this category. Try browsing all products instead.
+              We couldn{`'`}t find any products in this category. Try browsing all products instead.
             </p>
           </div>
         </motion.div>

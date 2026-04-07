@@ -91,10 +91,10 @@ export function NotifyMeModal({ isOpen, onClose, productName, productId }: Notif
                 <CheckCircle className="w-16 h-16 text-emerald mb-4" />
               </motion.div>
               <h3 className="font-heading text-lg font-semibold text-black mb-2">
-                You're on the list!
+                You{`'`}re on the list!
               </h3>
               <p className="text-sm text-black/60">
-                We'll email you as soon as this item is available. Check your inbox for a confirmation.
+                We{`'`}ll email you as soon as this item is available. Check your inbox for a confirmation.
               </p>
             </motion.div>
           ) : (

@@ -183,11 +183,11 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
           <AccordionContent className="text-sm text-black/70 space-y-2">
             <table className="w-full">
               <tbody>
-                <tr><td className="py-1"><strong>XS</strong></td><td>UK 6-8</td><td>Chest: 32-34"</td></tr>
-                <tr><td className="py-1"><strong>S</strong></td><td>UK 8-10</td><td>Chest: 34-36"</td></tr>
-                <tr><td className="py-1"><strong>M</strong></td><td>UK 10-12</td><td>Chest: 36-38"</td></tr>
-                <tr><td className="py-1"><strong>L</strong></td><td>UK 12-14</td><td>Chest: 38-40"</td></tr>
-                <tr><td className="py-1"><strong>XL</strong></td><td>UK 14-16</td><td>Chest: 40-42"</td></tr>
+                <tr><td className="py-1"><strong>XS</strong></td><td>UK 6-8</td><td>Chest: 32-34{'"'}</td></tr>
+                <tr><td className="py-1"><strong>S</strong></td><td>UK 8-10</td><td>Chest: 34-36{'"'}</td></tr>
+                <tr><td className="py-1"><strong>M</strong></td><td>UK 10-12</td><td>Chest: 36-38{'"'}</td></tr>
+                <tr><td className="py-1"><strong>L</strong></td><td>UK 12-14</td><td>Chest: 38-40{'"'}</td></tr>
+                <tr><td className="py-1"><strong>XL</strong></td><td>UK 14-16</td><td>Chest: 40-42{'"'}</td></tr>
               </tbody>
             </table>
             <p className="mt-2 text-xs">When in doubt, size up for the perfect fit.</p>

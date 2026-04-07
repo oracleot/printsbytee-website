@@ -8,6 +8,7 @@ interface PatternDividerProps {
 }
 
 export function PatternDivider({ variant: _variant = "geometric", className = "" }: PatternDividerProps) {
+  void _variant;
   return (
     <div className={`w-full flex items-center justify-center py-8 ${className}`}>
       <motion.div
