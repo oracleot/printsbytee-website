@@ -20,8 +20,14 @@ export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProp
     window.location.href = `/contact?product=${encodeURIComponent(product.name)}`;
   };
 
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   const whatsappMessage = `Hi, I'm interested in the ${product.name}${selectedSize ? ` (Size: ${selectedSize})` : ''}. Can you provide more information?`;
-  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+    : null;
+
+  const enquiryEmail = "enquiries@printsbytee.com";
+  const mailtoUrl = `mailto:${enquiryEmail}?subject=${encodeURIComponent(`Enquiry: ${product.name}`)}&body=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="space-y-4">
@@ -59,15 +65,26 @@ export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProp
       </div>
 
       {/* WhatsApp quick link */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm text-emerald hover:text-gold transition-colors font-medium"
-      >
-        <MessageCircle className="w-4 h-4" />
-        Chat on WhatsApp for quick response
-      </a>
+      {whatsappUrl ? (
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm text-emerald hover:text-gold transition-colors font-medium"
+        >
+          <MessageCircle className="w-4 h-4" />
+          Chat on WhatsApp for quick response
+        </a>
+      ) : (
+        <a
+          href={mailtoUrl}
+          className="inline-flex items-center gap-2 text-sm text-emerald hover:text-gold transition-colors font-medium"
+          title="WhatsApp not configured — email us instead"
+        >
+          <MessageCircle className="w-4 h-4" />
+          Email us for quick response
+        </a>
+      )}
     </div>
   );
 }
