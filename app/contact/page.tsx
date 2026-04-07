@@ -1,5 +1,3 @@
-"use client";
-
 import { Suspense } from "react";
 import { PatternDivider } from "@/components/shared/PatternDivider";
 import { ContactHero } from "@/components/contact/ContactHero";
