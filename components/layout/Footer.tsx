@@ -1,18 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
+import { socialLinks } from "@/components/shared/socialLinks";
 import { PatternDivider } from "@/components/shared/PatternDivider";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact" },
-];
-
-const socialLinks = [
-  { href: "https://www.instagram.com/printsbytee.uk/", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://www.facebook.com/profile.php?id=61578467193848", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://www.tiktok.com/@printsbytee_uk", label: "TikTok", Icon: TikTokIcon },
 ];
 
 export function Footer() {
