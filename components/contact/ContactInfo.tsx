@@ -44,7 +44,7 @@ export function ContactInfo() {
         </a>
 
         <a
-          href="https://wa.me/447000000000"
+          href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 text-black hover:text-emerald transition-colors group"

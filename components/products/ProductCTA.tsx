@@ -21,7 +21,7 @@ export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProp
   };
 
   const whatsappMessage = `Hi, I'm interested in the ${product.name}${selectedSize ? ` (Size: ${selectedSize})` : ''}. Can you provide more information?`;
-  const whatsappUrl = `https://wa.me/447000000000?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="space-y-4">
