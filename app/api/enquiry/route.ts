@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { randomUUID } from "crypto";
 import { z } from "zod";
 import { sendEnquiryEmail } from "@/lib/mail";
 
@@ -14,7 +13,7 @@ const enquirySchema = z.object({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Validate input
     const result = enquirySchema.safeParse(body);
     if (!result.success) {
@@ -25,38 +24,23 @@ export async function POST(request: Request) {
     }
 
     const { name, email, productInterest, message } = result.data;
-    const id = `enq-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const id = randomUUID();
     const createdAt = new Date().toISOString();
 
-    // Save to enquiries.json
-    const dataDir = path.join(process.cwd(), "data");
-    const filePath = path.join(dataDir, "enquiries.json");
-    
-    let enquiries: unknown[] = [];
-    try {
-      const existingData = await fs.readFile(filePath, "utf-8");
-      enquiries = JSON.parse(existingData);
-    } catch {
-      // File doesn't exist or is invalid JSON, start fresh
-      enquiries = [];
-    }
-
-    const newEnquiry = { id, name, email, productInterest, message, createdAt };
-    enquiries.push(newEnquiry);
-
-    await fs.writeFile(filePath, JSON.stringify(enquiries, null, 2));
+    console.log(`[Enquiry] New submission id=${id} name=${name} email=${email} productInterest=${productInterest ?? 'none'}`);
 
     // Send email notification
     try {
       await sendEnquiryEmail({ name, email, productInterest, message });
     } catch (emailError) {
-      console.error("Failed to send enquiry email:", emailError);
-      // Don't fail the request if email fails - data is still saved
+      console.error(`[Enquiry] Failed to send enquiry email for id=${id}:`, emailError);
+      // Still return success — email failure shouldn't block the response
+      // TODO: implement a proper external service (e.g. queue, SendGrid) for production
     }
 
-    return NextResponse.json({ success: true, id }, { status: 200 });
+    return NextResponse.json({ success: true, id, createdAt }, { status: 200 });
   } catch (error) {
-    console.error("Enquiry submission error:", error);
+    console.error("[Enquiry] Submission error:", error);
     return NextResponse.json(
       { success: false, error: "An unexpected error occurred. Please try again." },
       { status: 500 }

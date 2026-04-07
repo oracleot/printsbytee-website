@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle, Loader2, Mail, Phone } from "lucide-react";
 import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
@@ -23,13 +24,21 @@ interface FormErrors {
   message?: string;
 }
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
+/**
+ * Reads the ?product= query param and pre-fills formData.productInterest.
+ * useSearchParams requires Suspense boundary — this component IS the Suspense boundary.
+ */
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const productParam = searchParams.get("product") ?? "";
+
+  // Initialize with product param from URL (available via useSearchParams in Suspense context)
+  const [formData, setFormData] = useState<FormData>(() => ({
     name: "",
     email: "",
-    productInterest: "",
+    productInterest: productParam,
     message: "",
-  });
+  }));
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -93,7 +102,6 @@ export default function ContactPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData(prev => ({ ...prev, [field]: e.target.value }));
-    // Clear error when user starts typing
     if (errors[field as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [field]: undefined }));
     }
@@ -121,7 +129,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-black/70 text-lg max-w-2xl mx-auto">
             Have a question about our products or want to place a custom order? 
-            We'd love to hear from you.
+            We&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -140,12 +148,12 @@ export default function ContactPage() {
             >
               <div>
                 <h2 className="font-heading text-2xl font-bold text-black mb-4">
-                  Let's Connect
+                  Let&apos;s Connect
                 </h2>
                 <p className="text-black/70 leading-relaxed">
-                  Whether you're looking for the perfect outfit for a special occasion, 
+                  Whether you&apos;re looking for the perfect outfit for a special occasion, 
                   interested in a custom order, or just want to learn more about our brand, 
-                  we're here to help. Reach out and let's start a conversation.
+                  we&apos;re here to help. Reach out and let&apos;s start a conversation.
                 </p>
               </div>
 
@@ -212,8 +220,8 @@ export default function ContactPage() {
               {/* Brand Story snippet */}
               <div className="p-6 bg-cream rounded-lg">
                 <p className="text-sm text-black/70 italic">
-                  "We believe every woman deserves to wear her heritage with pride, 
-                  without sacrificing comfort or contemporary style."
+                  &quot;We believe every woman deserves to wear her heritage with pride, 
+                  without sacrificing comfort or contemporary style.&quot;
                 </p>
               </div>
             </motion.div>
@@ -240,7 +248,7 @@ export default function ContactPage() {
                       Message Sent!
                     </h3>
                     <p className="text-black/60 max-w-sm">
-                      Thank you for reaching out. We'll get back to you within 24 hours.
+                      Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                     </p>
                   </motion.div>
                 ) : (
@@ -360,5 +368,13 @@ export default function ContactPage() {
 
       <PatternDivider />
     </>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-offwhite" />}>
+      <ContactFormInner />
+    </Suspense>
   );
 }
