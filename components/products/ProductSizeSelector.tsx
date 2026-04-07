@@ -15,6 +15,7 @@ export function ProductSizeSelector({ sizes, selectedSize, onSelect }: ProductSi
       <div className="flex flex-wrap gap-2">
         {sizes.map((size) => (
           <button
+            type="button"
             key={size}
             onClick={() => onSelect(size)}
             className={`px-4 py-2 text-sm font-medium rounded-md border transition-all ${
