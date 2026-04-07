@@ -25,25 +25,30 @@ export function WhatsAppButton({
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const hero = document.getElementById("hero");
-    if (!hero) {
-      // No hero found — show button immediately
-      return;
-    }
+    // Small delay to ensure page has loaded and hero is in DOM
+    const timer = setTimeout(() => {
+      const hero = document.getElementById("hero");
+      if (!hero) {
+        // No hero element — show button immediately
+        setVisible(true);
+        return;
+      }
 
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          setVisible(true);
-          observerRef.current?.disconnect();
-        }
-      },
-      { threshold: 0 }
-    );
+      observerRef.current = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) {
+            setVisible(true);
+            observerRef.current?.disconnect();
+          }
+        },
+        { threshold: 0 }
+      );
 
-    observerRef.current.observe(hero);
+      observerRef.current.observe(hero);
+    }, 100);
 
     return () => {
+      clearTimeout(timer);
       observerRef.current?.disconnect();
     };
   }, []);

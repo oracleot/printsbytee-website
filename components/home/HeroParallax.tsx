@@ -14,7 +14,7 @@ export function HeroParallax() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0.2]);
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
       {/* Parallax Background Layer - Deep emerald base */}
       <motion.div
         style={{ y: backgroundY }}
