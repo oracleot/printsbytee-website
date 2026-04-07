@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 function normalizePhoneNumber(raw?: string): string | undefined {
@@ -23,60 +22,25 @@ export function WhatsAppButton({
   const whatsappNumber = normalizePhoneNumber(
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
   );
-  const [visible, setVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const didShowRef = useRef(false);
-
-  useEffect(() => {
-    const hero = document.getElementById("hero");
-
-    if (!hero) {
-      const fallback = setTimeout(() => setVisible(true), 0);
-      return () => clearTimeout(fallback);
-    }
-
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting && !didShowRef.current) {
-          didShowRef.current = true;
-          setVisible(true);
-          observerRef.current?.disconnect();
-        }
-      },
-      { threshold: 0 }
-    );
-
-    observerRef.current.observe(hero);
-
-    return () => {
-      observerRef.current?.disconnect();
-    };
-  }, []);
-
   if (!whatsappNumber) return null;
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 0 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className={`fixed bottom-5 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white pl-3 pr-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow group ${className}`}
-        >
-          <MessageCircle className="w-5 h-5 flex-shrink-0" />
-          <span className="font-medium text-sm whitespace-nowrap overflow-hidden max-w-0 group-hover:max-w-48 transition-all duration-300 ease-in-out">
-            Chat on WhatsApp
-          </span>
-        </motion.a>
-      )}
-    </AnimatePresence>
+    <motion.a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className={`fixed bottom-[5rem] right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white pl-3 pr-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow group ${className}`}
+    >
+      <MessageCircle className="w-5 h-5 flex-shrink-0" />
+      <span className="font-medium text-sm whitespace-nowrap overflow-hidden max-w-0 group-hover:max-w-48 transition-all duration-300 ease-in-out">
+        Chat on WhatsApp
+      </span>
+    </motion.a>
   );
 }
