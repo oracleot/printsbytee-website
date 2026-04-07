@@ -130,8 +130,8 @@ export function BentoGrid({ products }: BentoGridProps) {
           </h2>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(140px,auto)]">
+        {/* Bento Grid - fixed height 540px, 2 rows */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 h-[540px] grid-rows-2">
           {bentoItems.map((item, index) => (
             <BentoCard key={item.id} item={item} index={index} />
           ))}
