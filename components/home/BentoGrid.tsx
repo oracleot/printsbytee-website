@@ -18,18 +18,24 @@ interface BentoItem {
   price: number | null;
   inStock: boolean;
   gradient: string;
-  span: "col-span-2 row-span-2" | "col-span-1 row-span-1";
+  isLargeCard: boolean;
 }
 
 function BentoCard({ item, index }: { item: BentoItem; index: number }) {
-  const isLarge = item.span === "col-span-2 row-span-2";
-  const isSmall = item.span === "col-span-1 row-span-1";
+  const isLarge = item.isLargeCard;
+  const isSmall = !item.isLargeCard;
 
   const badgeOffset = isSmall ? "top-3 left-3" : "top-4 left-4";
-  const minHeight = isSmall ? "min-h-[200px]" : "min-h-[280px]";
+  const minHeight = isSmall ? "min-h-[200px]" : "min-h-[280px] md:min-h-[0px]";
   const innerLayout = isLarge
     ? "flex flex-col justify-center items-start"
     : "";
+
+  // Large card: full width on mobile (col-span-2), half+double-row on desktop (md:col-span-2 md:row-span-2)
+  // Small cards: half width on mobile (col-span-1), quarter width on desktop (md:col-span-1)
+  const spanClass = isLarge
+    ? "col-span-2 md:col-span-2 md:row-span-2"
+    : "col-span-1 md:col-span-1";
 
   return (
     <motion.div
@@ -37,7 +43,7 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative group ${item.span} min-h-0`}
+      className={`relative group ${spanClass} min-h-0`}
     >
       <Link href={`/products/${item.slug}`} className="block h-full">
         <div
@@ -98,8 +104,7 @@ export function BentoGrid({ products }: BentoGridProps) {
   // Create bento layout items
   const bentoItems: BentoItem[] = featuredProducts.map((product, index) => {
     // First item is large (2 cols × 2 rows); all others are 1×1
-    const span: BentoItem["span"] =
-      index === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1";
+    const isLargeCard = index === 0;
 
     return {
       id: product.id,
@@ -109,7 +114,7 @@ export function BentoGrid({ products }: BentoGridProps) {
       price: product.price,
       inStock: product.inStock,
       gradient: getProductGradient(product.images[0]),
-      span,
+      isLargeCard,
     };
   });
 
@@ -127,13 +132,20 @@ export function BentoGrid({ products }: BentoGridProps) {
           <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium">
             Featured Collection
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-black mt-3">
+          <h2 className="font-heading text-4xl sm:text-5xl font-black text-black mt-3 leading-tight">
             Our Best Sellers
           </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="w-16 h-0.5 bg-gold mx-auto mt-4 origin-left"
+          />
         </motion.div>
 
-        {/* Bento Grid - fixed height 540px, 4 cols, 2 rows */}
-        <div className="grid grid-cols-4 gap-4 h-[540px] grid-rows-2">
+        {/* Bento Grid - 2 cols mobile → 4 cols desktop, auto rows mobile → fixed 540px desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:h-[540px] md:grid-rows-2">
           {bentoItems.map((item, index) => (
             <BentoCard key={item.id} item={item} index={index} />
           ))}

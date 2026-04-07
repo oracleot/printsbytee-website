@@ -11,6 +11,11 @@ const socialLinks = [
 ];
 
 export function ContactInfo() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappUrl = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}`
+    : "mailto:hello@printsbytee.co.uk";
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -44,7 +49,7 @@ export function ContactInfo() {
         </a>
 
         <a
-          href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 text-black hover:text-emerald transition-colors group"
