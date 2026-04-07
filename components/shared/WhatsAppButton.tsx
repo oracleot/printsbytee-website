@@ -18,37 +18,37 @@ interface WhatsAppButtonProps {
 
 export function WhatsAppButton({
   message = "Hi, I'm interested in PrintsbyTee products",
-  className = ""
+  className = "",
 }: WhatsAppButtonProps) {
-  const whatsappNumber = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
+  const whatsappNumber = normalizePhoneNumber(
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+  );
   const [visible, setVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const didShowRef = useRef(false);
 
   useEffect(() => {
-    // Small delay to ensure page has loaded and hero is in DOM
-    const timer = setTimeout(() => {
-      const hero = document.getElementById("hero");
-      if (!hero) {
-        // No hero element — show button immediately
-        setVisible(true);
-        return;
-      }
+    const hero = document.getElementById("hero");
 
-      observerRef.current = new IntersectionObserver(
-        ([entry]) => {
-          if (!entry.isIntersecting) {
-            setVisible(true);
-            observerRef.current?.disconnect();
-          }
-        },
-        { threshold: 0 }
-      );
+    if (!hero) {
+      const fallback = setTimeout(() => setVisible(true), 0);
+      return () => clearTimeout(fallback);
+    }
 
-      observerRef.current.observe(hero);
-    }, 100);
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && !didShowRef.current) {
+          didShowRef.current = true;
+          setVisible(true);
+          observerRef.current?.disconnect();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observerRef.current.observe(hero);
 
     return () => {
-      clearTimeout(timer);
       observerRef.current?.disconnect();
     };
   }, []);
