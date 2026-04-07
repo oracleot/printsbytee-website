@@ -3,6 +3,13 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
+function normalizePhoneNumber(raw?: string): string | undefined {
+  const trimmed = raw?.trim();
+  if (!trimmed) return undefined;
+  const digits = trimmed.replace(/\D/g, "");
+  return digits.length >= 10 ? digits : undefined;
+}
+
 interface WhatsAppButtonProps {
   message?: string;
   className?: string;
@@ -12,7 +19,7 @@ export function WhatsAppButton({
   message = "Hi, I'm interested in PrintsbyTee products", 
   className = "" 
 }: WhatsAppButtonProps) {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
 
   if (!whatsappNumber) return null;
 

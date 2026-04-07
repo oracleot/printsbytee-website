@@ -12,6 +12,13 @@ interface ProductCTAProps {
   onNotifyMe: () => void;
 }
 
+function normalizePhoneNumber(raw?: string): string | undefined {
+  const trimmed = raw?.trim();
+  if (!trimmed) return undefined;
+  const digits = trimmed.replace(/\D/g, "");
+  return digits.length >= 10 ? digits : undefined;
+}
+
 export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProps) {
   const [addedToEnquiry, setAddedToEnquiry] = useState(false);
 
@@ -20,7 +27,7 @@ export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProp
     window.location.href = `/contact?product=${encodeURIComponent(product.name)}`;
   };
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
   const whatsappMessage = `Hi, I'm interested in the ${product.name}${selectedSize ? ` (Size: ${selectedSize})` : ''}. Can you provide more information?`;
   const whatsappUrl = whatsappNumber
     ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
