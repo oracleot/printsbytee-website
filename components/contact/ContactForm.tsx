@@ -79,7 +79,7 @@ export function ContactForm() {
 
       if (data.success) {
         setStatus("success");
-        setFormData({ name: "", email: "", productInterest: "", message: "" });
+        setFormData({ name: "", email: "", productInterest: productParam, message: "" });
       } else {
         setStatus("error");
         setErrorMessage(data.error || "Something went wrong.");
