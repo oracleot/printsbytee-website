@@ -18,7 +18,7 @@ interface BentoItem {
   price: number | null;
   inStock: boolean;
   gradient: string;
-  span: "col-span-2 row-span-2" | "col-span-1 row-span-1" | "col-span-1 row-span-2";
+  span: "col-span-2 row-span-2" | "col-span-1 row-span-1";
 }
 
 function BentoCard({ item, index }: { item: BentoItem; index: number }) {
@@ -97,16 +97,9 @@ export function BentoGrid({ products }: BentoGridProps) {
 
   // Create bento layout items
   const bentoItems: BentoItem[] = featuredProducts.map((product, index) => {
-    let span: BentoItem["span"] = "col-span-1 row-span-1";
-
-    // First item is large (2x2)
-    if (index === 0) {
-      span = "col-span-2 row-span-2";
-    }
-    // Items 3 and 4 are tall (1x2)
-    else if (index === 3 || index === 4) {
-      span = "col-span-1 row-span-2";
-    }
+    // First item is large (2 cols × 2 rows); all others are 1×1
+    const span: BentoItem["span"] =
+      index === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1";
 
     return {
       id: product.id,
@@ -139,8 +132,8 @@ export function BentoGrid({ products }: BentoGridProps) {
           </h2>
         </motion.div>
 
-        {/* Bento Grid - fixed height 540px, 2 rows */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-[540px] grid-rows-2">
+        {/* Bento Grid - fixed height 540px, 4 cols, 2 rows */}
+        <div className="grid grid-cols-4 gap-4 h-[540px] grid-rows-2">
           {bentoItems.map((item, index) => (
             <BentoCard key={item.id} item={item} index={index} />
           ))}
