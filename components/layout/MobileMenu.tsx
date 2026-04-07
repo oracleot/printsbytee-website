@@ -4,13 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
-
-const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
-];
+import { socialLinks } from "@/components/shared/socialLinks";
 
 const navLinks = [
   { href: "/", label: "Home" },
