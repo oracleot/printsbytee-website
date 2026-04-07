@@ -23,6 +23,13 @@ interface BentoItem {
 
 function BentoCard({ item, index }: { item: BentoItem; index: number }) {
   const isLarge = item.span === "col-span-2 row-span-2";
+  const isSmall = item.span === "col-span-1 row-span-1";
+
+  const badgeOffset = isSmall ? "top-3 left-3" : "top-4 left-4";
+  const minHeight = isSmall ? "min-h-[200px]" : "min-h-[280px]";
+  const innerLayout = isLarge
+    ? "flex flex-col justify-center items-start"
+    : "";
 
   return (
     <motion.div
@@ -30,11 +37,11 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative group ${item.span}`}
+      className={`relative group ${item.span} min-h-0`}
     >
       <Link href={`/products/${item.slug}`} className="block h-full">
         <div
-          className={`relative h-full min-h-[280px] rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl ${isLarge ? "flex flex-col justify-center" : ""}`}
+          className={`relative h-full ${minHeight} rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl ${innerLayout}`}
           style={{ background: item.gradient }}
         >
           {/* Decorative pattern overlay */}
@@ -49,11 +56,11 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
 
           {/* Badge */}
           {item.inStock ? (
-            <span className="absolute top-4 left-4 bg-emerald text-cream text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded">
+            <span className={`absolute ${badgeOffset} bg-emerald text-cream text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded`}>
               In Stock
             </span>
           ) : (
-            <span className="absolute top-4 left-4 bg-gold text-black text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded">
+            <span className={`absolute ${badgeOffset} bg-gold text-black text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded`}>
               Pre-order
             </span>
           )}
@@ -66,7 +73,7 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
           </div>
 
           {/* Bottom info - always at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
             <span className="text-xs text-gold uppercase tracking-wider">
               {getCategoryLabel(item.category)}
             </span>
@@ -133,7 +140,7 @@ export function BentoGrid({ products }: BentoGridProps) {
         </motion.div>
 
         {/* Bento Grid - fixed height 540px, 2 rows */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 h-[540px] grid-rows-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-[540px] grid-rows-2">
           {bentoItems.map((item, index) => (
             <BentoCard key={item.id} item={item} index={index} />
           ))}
