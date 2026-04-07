@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
 
+function normalizePhoneNumber(raw?: string): string | undefined {
+  const trimmed = raw?.trim();
+  if (!trimmed) return undefined;
+  const digits = trimmed.replace(/\D/g, "");
+  return digits.length >= 10 ? digits : undefined;
+}
+
 const socialLinks = [
   { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
   { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
@@ -11,6 +18,11 @@ const socialLinks = [
 ];
 
 export function ContactInfo() {
+  const whatsappNumber = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
+  const whatsappUrl = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}`
+    : "mailto:hello@printsbytee.co.uk";
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -44,7 +56,7 @@ export function ContactInfo() {
         </a>
 
         <a
-          href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 text-black hover:text-emerald transition-colors group"

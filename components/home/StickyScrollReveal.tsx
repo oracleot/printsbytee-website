@@ -80,12 +80,19 @@ export function StickyScrollReveal() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-black mt-4 leading-[1.1]"
+            className="font-heading text-5xl sm:text-6xl lg:text-7xl font-black text-black mt-4 leading-[1.05] tracking-tight"
           >
             Fashion That{" "}
             <span className="text-emerald">Celebrates</span>{" "}
             <span className="text-gold">Identity</span>
           </motion.h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            className="w-24 h-0.5 bg-gold mx-auto mt-6 origin-left"
+          />
         </div>
 
         {/* Main Content Grid - 2 columns */}

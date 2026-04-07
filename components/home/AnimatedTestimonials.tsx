@@ -57,13 +57,20 @@ export function AnimatedTestimonials() {
           <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium">
             Customer Love
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-cream mt-3">
+          <h2 className="font-heading text-4xl sm:text-5xl font-black text-cream mt-3 leading-tight">
             What Our Queens Say
           </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="w-16 h-0.5 bg-gold mx-auto mt-4 origin-left"
+          />
         </motion.div>
 
         {/* Card */}
-        <div className="relative h-[320px] md:h-[280px]">
+        <div className="relative h-[360px] md:h-[310px]">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -78,29 +85,29 @@ export function AnimatedTestimonials() {
               }}
               className="absolute inset-0"
             >
-              <div className="bg-cream rounded-2xl p-8 md:p-10 shadow-2xl h-full flex flex-col justify-between">
+              <div className="bg-cream rounded-2xl p-8 md:p-12 shadow-2xl h-full flex flex-col justify-between border border-gold/10">
                 <div
-                  className="text-6xl font-serif leading-none absolute top-4 left-6 opacity-20"
-                  style={{ color: "#1B4D3E" }}
+                  className="text-8xl font-serif leading-none absolute top-2 left-6 opacity-15 select-none"
+                  style={{ color: "#1B4D3E", fontFamily: "Georgia, serif" }}
                 >
                   &ldquo;
                 </div>
-                <p className="relative z-10 text-black/80 text-lg md:text-xl leading-relaxed italic">
+                <p className="relative z-10 text-black/80 text-lg md:text-xl leading-relaxed italic pt-4">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
-                <div className="flex items-center justify-between mt-6">
+                <div className="flex items-center justify-between mt-6 pt-6 border-t border-black/10">
                   <div className="flex items-center gap-4">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-cream font-bold"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-cream font-bold text-lg shadow-md"
                       style={{ background: testimonial.gradient }}
                     >
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-black">
+                      <p className="font-heading font-bold text-black">
                         {testimonial.name}
                       </p>
-                      <p className="text-black/60 text-sm">{testimonial.location}</p>
+                      <p className="text-black/50 text-sm tracking-wide">{testimonial.location}</p>
                     </div>
                   </div>
                   <StarRating rating={testimonial.rating} />

@@ -82,7 +82,8 @@ export function HeroParallax() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
-          className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black text-cream mb-8 leading-[0.9] tracking-tight"
+          className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold text-cream mb-8 leading-[0.9] tracking-tight"
+          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.5), 0 1px 8px rgba(0,0,0,0.3)" }}
         >
           WEAR YOUR{" "}
           <span className="text-gold block sm:inline">STORY</span>
@@ -92,7 +93,8 @@ export function HeroParallax() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          className="text-cream/90 text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+          className="text-cream/90 text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed tracking-wide"
+          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.4)" }}
         >
           Bold prints. Contemporary style. African heritage, reimagined for the modern woman.
         </motion.p>
@@ -100,15 +102,22 @@ export function HeroParallax() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
             href="/products"
-            className="inline-flex items-center gap-4 bg-gold text-black px-10 py-5 font-bold text-base tracking-[0.15em] uppercase hover:bg-cream transition-all duration-300 shadow-xl shadow-gold/20"
+            className="inline-flex items-center gap-4 bg-gold text-black px-10 py-5 font-bold text-base tracking-[0.15em] uppercase hover:bg-cream transition-all duration-300 shadow-xl shadow-gold/30 hover:shadow-gold/50"
           >
             Shop Now
             <ArrowRight className="w-5 h-5" />
           </Link>
+          <a
+            href="mailto:hello@printsbytee.co.uk"
+            className="inline-flex items-center gap-2 text-cream/80 hover:text-gold text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 border-b border-cream/30 hover:border-gold pb-0.5"
+          >
+            Custom Orders
+          </a>
         </motion.div>
       </motion.div>
 
