@@ -8,7 +8,7 @@
 
 ## Overview
 
-Next.js 15 + TypeScript + Tailwind CSS + shadcn/ui e-commerce site for PrintsbyTee — an African print fashion brand targeting diaspora women. MVP with 4 pages, inquiry form, and Notify Me / Waitlist. Stripe comes in v1+1.
+Next.js 16.2.2 + TypeScript + Tailwind CSS + shadcn/ui e-commerce site for PrintsbyTee — an African print fashion brand targeting diaspora women. MVP with 4 pages, inquiry form, and Notify Me / Waitlist. Stripe comes in v1+1.
 
 ---
 
@@ -16,7 +16,7 @@ Next.js 15 + TypeScript + Tailwind CSS + shadcn/ui e-commerce site for PrintsbyT
 
 | Layer | Technology |
 |-------|------------|
-| Framework | Next.js 15 (App Router) |
+| Framework | Next.js 16.2.2 (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS v4 + shadcn/ui |
 | Animations | Framer Motion |
