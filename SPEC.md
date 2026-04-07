@@ -1,203 +1,166 @@
-# PrintsbyTee MVP — Build Spec
+# PrintsbyTee Sprint 2 — SPEC.md
 
-## Context
-Project directory exists at `/root/projects/printsbytee/` with:
-- `public/logo.svg` — brand logo
-- `public/logo-bg.jpg` — reference background
-- `workflow-artifacts/01-plan-ceo.md` — product decisions
-- `workflow-artifacts/02-plan-eng.md` — architecture
+## Project Context
+African print ready-to-wear fashion brand. Next.js 14, TypeScript, Tailwind CSS, Framer Motion.
 
-NO code exists yet. This is a greenfield Next.js 15 project.
+## Brand Palette
+- Obsidian Black: #0D0D0D
+- Rose Gold: #C9A84C
+- Warm Cream: #F5F0E8
+- Deep Emerald: #1B4D3E
+- Terracotta: #C75B39
+- Gold accent: #C9A84C (used as `gold` in Tailwind)
 
-## Tech Stack
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Forms:** React Hook Form + Zod
-- **Email:** Nodemailer
-- **Fonts:** Playfair Display (headlines) + DM Sans (body)
+Typography: Playfair Display (headings), DM Sans (body)
 
-## Color Palette
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `black` | `#0D0D0D` | CTAs, primary text |
-| `gold` | `#C9A84C` | Accent, decorative |
-| `cream` | `#F5F0E8` | Background |
-| `emerald` | `#1B4D3E` | Secondary accent |
-| `terracotta` | `#C75B39` | Warm accent |
-| `offwhite` | `#FAFAF8` | Page bg |
+---
 
-## Pages to Build
+## TASK 1: Replace "PbT" text logo with SVG logo in Header
 
-### 1. Homepage `/`
-- Sticky header (logo left, nav center, social icons right)
-- Full-bleed hero (80vh) with gradient placeholder, overlay text "WEAR YOUR STORY", "SHOP NOW" CTA
-- Brand story (2-col: text left, image right)
-- Featured products (4 horizontal scroll cards)
-- Adinkra pattern divider
-- Newsletter signup CTA
-- Footer
+**Files:**
+- `components/layout/Header.tsx` — replace inline SVG `<text>` logo with proper `<img>` referencing `/logo.svg`
+- `components/layout/Footer.tsx` — replace inline SVG `<text>` logo with `<img>` referencing `/logo.svg`
+- Search for any other "PbT" text occurrences across codebase
 
-### 2. Products `/products`
-- Page header "Our Collection"
-- Category filter tabs: All | Laura Set | Short Bubu | 2-piece set
-- Responsive grid (1/2/3 col)
-- ProductCard with hover effect, conditional price
+**Spec:**
+- Header: Logo in `<Link href="/">` tag, links to home (`/`). Use `<Image>` from next/image or plain `<img>` tag with `src="/logo.svg"` (the SVG file already exists at `/public/logo.svg`)
+- Footer: Same logo treatment, also wrapped in `<Link href="/">`
+- Logo must be clickable and navigate home
+- Maintain current sizing/positioning — just swap the text-based SVG for the proper logo SVG file
 
-### 3. Product Detail `/products/[slug]`
-- Breadcrumb nav
-- 2-col layout: image gallery (main + thumbnails) + product info
-- Product info: badge, name, price (conditional), description, size pills, qty input
-- CTAs: "Enquire to Order" + "Notify Me When Available" (if out-of-stock)
-- WhatsApp quick-link
-- Accordion: Product Details, Sizing Guide, Care Instructions
-- Related products (3 same-category)
+---
 
-### 4. Contact `/contact`
-- Page header with pattern accent
-- 2-col: brand info left, enquiry form right
-- Form: Name, Email, Product Interest (optional), Message
-- POST /api/enquiry
+## TASK 2: Aceternity UI Exploration Plan (NO INSTALL — document only)
 
-## API Routes
+**File to create:** `workflow-artifacts/sprint-2-plan.md`
 
-### `POST /api/enquiry`
-```typescript
-// Body: { name, email, productInterest?, message }
-// Validation: Zod (name min 2, email valid, message min 10)
-// Store: data/enquiries.json
-// Email: nodemailer to hello@printsbytee.co.uk
-// Response: { success: true, id }
-```
+Document 3-5 Aceternity components that would elevate the PrintsbyTee homepage fitting the Afro-Luxe Modern brand. For EACH component include:
+- Component name from Aceternity
+- Where it would go on the homepage
+- ASCII/text mockup sketch
+- Visual description
 
-### `POST /api/waitlist`
-```typescript
-// Body: { email, productId }
-// Store: data/waitlist.json (prevent duplicates)
-// Response: { success: true }
-```
+**Components to evaluate:**
+- Bento Grid / Feature Sections (product showcase layout)
+- Parallax Hero Images (hero section with African print imagery)
+- Infinite Moving Cards (testimonials or product carousel)
+- Sparkles (background effect for hero)
+- Tracing Beam (animated beam for section headers)
+- Hero Highlight (hero text with highlight effect)
+- Card Spotlight (product cards with spotlight effect)
+- Sticky Scroll Reveal (sticky sections for storytelling)
+- Animated Testimonials (customer testimonials section)
+- Background Beams (hero background effect)
 
-### `GET /api/products`
-```typescript
-// Response: { products: Product[] }
-```
+**Do NOT install Aceternity UI — only document the plan.**
 
-### `GET /api/products/[slug]`
-```typescript
-// Response: { product: Product } | { error: "Not found" }
-```
+---
 
-## Data Model
-```typescript
-interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  category: 'laura-set' | 'short-bubu' | '2-piece-set';
-  description: string;
-  price: number | null;
-  sizes: string[];
-  images: string[];  // use CSS gradient placeholders
-  inStock: boolean;
-  notifyMeEnabled: boolean;
-  featured: boolean;
-  createdAt: string;
-}
-```
+## TASK 3: Move WhatsApp floating button up
 
-## 20 Sample Products
-Create `data/products.json` with 20 products:
-- 7 Laura Set
-- 7 Short Bubu  
-- 6 2-piece set
-- Mix of inStock true/false
-- Mix of price null/number
-- Featured: true for first 4
+**File:** `components/shared/WhatsAppButton.tsx`
 
-Use realistic fashion names + storytelling descriptions. Use CSS gradient images via inline styles (fashion editorial style with brand palette colors).
+**Spec:**
+- Currently `bottom-6 right-6` — the button blocks "Ready to Wear" text when scrolled to bottom
+- Change to `bottom-20 right-6` or higher (`bottom-24 right-6`) so it floats well above the fold area bottom edge
+- The button should still be visible and accessible but not overlap the main content when scrolling
+- Keep all existing styling (green WhatsApp button, motion animations, etc.)
 
-## Components to Build
-```
-app/
-  layout.tsx              # Root layout with fonts + globals
-  page.tsx                # Homepage
-  globals.css             # Tailwind + custom properties
-  products/
-    page.tsx             # Products listing
-    [slug]/page.tsx      # Product detail
-  contact/
-    page.tsx             # Contact page
-  api/
-    enquiry/route.ts
-    waitlist/route.ts
-    products/route.ts
-    products/[slug]/route.ts
+---
 
-components/
-  layout/
-    Header.tsx
-    Footer.tsx
-  home/
-    Hero.tsx
-    BrandStory.tsx
-    FeaturedProducts.tsx
-    NewsletterForm.tsx
-  products/
-    ProductCard.tsx
-    ProductGrid.tsx
-    ProductGallery.tsx
-    ProductInfo.tsx
-    NotifyMeModal.tsx
-  shared/
-    PatternDivider.tsx    # Adinkra-inspired SVG
-    WhatsAppButton.tsx
+## TASK 4: Rework the Footer
 
-lib/
-  products.ts             # Product data getters
-  utils.ts                # cn(), formatters
-  mail.ts                 # Nodemailer config
+**File:** `components/layout/Footer.tsx`
 
-data/
-  products.json           # 20 products
-  enquiries.json          # [] (initially empty)
-  waitlist.json           # [] (initially empty)
-```
+**Spec:**
+- Match Afro-Luxe Modern brand aesthetic
+- Use the `PatternDivider` (Adinkra pattern) as a decorative top element (between dark footer and page content above)
+- Include:
+  - Logo (use `/logo.svg` via `<img src="/logo.svg">`) wrapped in `<Link href="/">`
+  - Nav links: Home, Products, Contact (each wrapped in `<Link>`)
+  - Social icons: Instagram (@printsbytee), Facebook (@printsbytee), TikTok (@printsbytee) using existing SocialIcons component
+  - Copyright line: `© {year} PrintsbyTee. All rights reserved.`
+  - Brand tagline: e.g., "Ready-to-Wear fashion for bold and beautiful African women."
+- Dark background (`bg-black text-cream`) — maintain existing
+- Responsive layout: stack on mobile, side-by-side on larger screens
+- Rose Gold (`text-gold`) for section headers/labels
 
-## Placeholder Images
-Use CSS gradient placeholders inline. No external image URLs. Examples:
-- `background: linear-gradient(135deg, #C9A84C 0%, #1B4D3E 50%, #0D0D0D 100%)`
-- `background: linear-gradient(135deg, #C75B39 0%, #F5F0E8 50%, #C9A84C 100%)`
-- `background: linear-gradient(135deg, #1B4D3E 0%, #0D0D0D 100%)`
+---
 
-## Pattern Divider
-Create Adinkra-inspired SVG geometric pattern. Simple diamonds/squares arranged in West African motif. Used as:
-- Section dividers (horizontal)
-- Card decorative corners
-- Background accents in footer
-- Header accent line
+## TASK 5: Fix Quick View button hover trigger
 
-## shadcn/ui Components to Install
-- Button, Input, Label, Textarea, Select, Dialog, Badge, Accordion, Separator
+**File:** `components/products/ProductCard.tsx`
 
-## Key Implementation Notes
-1. **No Stripe** — no payment processing in MVP
-2. **Conditional price** — `price: null` means hide price entirely, no placeholder text
-3. **Notify Me** — only show for `inStock: false && notifyMeEnabled: true` products
-4. **All social handles** — @printsbytee for IG, FB, TikTok
-5. **WhatsApp** — `https://wa.me/447000000000` (use placeholder number, note to update)
-6. **Email enquiries** — `hello@printsbytee.co.uk`
+**Spec:**
+- Currently Quick View button only shows when hovering at a certain position
+- Fix: show Quick View as soon as user hovers on ANY part of the product image or the product name
+- The entire card/image area (`.group` container) should trigger the hover state
+- Currently uses `group-hover:bg-black/30` on a div and `whileHover` on the Quick View div
+- The issue is the Quick View overlay div only covers part of the image area
+- Make the overlay cover the full image container (`absolute inset-0` on the hover overlay div)
+- Ensure Quick View button appears when hovering either the image OR the product name
 
-## Validation Before Commit
-```bash
-pnpm run lint      # ESLint — 0 errors
-pnpm run typecheck # tsc --noEmit — 0 errors  
-pnpm run build    # Must succeed
-```
+---
 
-## Feature Branch
-`feat/printsbytee-mvp`
+## TASK 6: Mobile hamburger → full height menu
 
-## Output Target
-Fully functional Next.js 15 app at `/root/projects/printsbytee/` — no TODOs, no placeholder comments. Ready for code review.
+**File:** `components/layout/Header.tsx`
+
+**Spec:**
+- Currently the mobile menu is `md:hidden` and uses AnimatePresence with height animation (accordion style)
+- Implement a full-height slide-out mobile menu overlay — reference the suleclaw agency website style
+- The menu should:
+  - Use `fixed inset-0` to cover full screen when open
+  - Animated open/close transition (e.g., slide from right or fade in)
+  - Logo at top (left aligned)
+  - Full-height nav links: Home, Products, Contact — large, easy to tap (stacked vertically)
+  - Social icons below nav links (Instagram, Facebook, TikTok)
+  - Close button (X) at top right
+  - Semi-transparent backdrop behind menu (optional)
+- Use Framer Motion for smooth animation
+- Keep desktop view unchanged
+- Mobile menu button trigger remains the hamburger icon button
+
+---
+
+## TASK 7: File refactors (split files > 200 lines)
+
+**Files to refactor:**
+
+### A: `app/contact/page.tsx` (380 lines → split into focused modules)
+Split into:
+- `app/contact/page.tsx` — imports and exports ContactPage (Suspense wrapper only, ~15 lines)
+- `components/contact/ContactForm.tsx` — form component with useSearchParams and form logic
+- `components/contact/ContactHero.tsx` — Hero Header section
+- `components/contact/ContactInfo.tsx` — Contact info panel (email, WhatsApp, social links)
+- `components/contact/ContactSuccess.tsx` — Success state component
+
+### B: `components/products/ProductInfo.tsx` (208 lines → split into focused modules)
+Split into:
+- `components/products/ProductInfo.tsx` — main component (orchestrator, ~80 lines)
+- `components/products/ProductSizeSelector.tsx` — size selection UI
+- `components/products/ProductAccordion.tsx` — product details/sizing/care accordion
+- `components/products/ProductCTA.tsx` — enquiry button, notify me, WhatsApp link
+
+**Rules:**
+- shadcn/ui `components/ui/select.tsx` is EXEMPT (third-party library code)
+- All new files must be ≤200 lines
+- Preserve all existing imports, props, and functionality
+- No logic changes — only structural reorganization
+
+---
+
+## Acceptance Criteria (All Tasks)
+
+- [ ] Header and Footer use `/logo.svg` (not inline text SVG)
+- [ ] Logo in Header and Footer links to home (`/`)
+- [ ] Aceternity UI plan documented in `workflow-artifacts/sprint-2-plan.md`
+- [ ] WhatsApp button positioned higher (no longer blocking content)
+- [ ] Footer redesigned with logo, nav, social icons, Adinkra divider, tagline
+- [ ] Quick View shows when hovering any part of product image or name
+- [ ] Mobile menu is full-height slide-out overlay
+- [ ] `app/contact/page.tsx` split into focused modules (all ≤200 lines)
+- [ ] `components/products/ProductInfo.tsx` split into focused modules (all ≤200 lines)
+- [ ] `pnpm run lint` passes with 0 errors
+- [ ] `pnpm run typecheck` passes with 0 errors
+- [ ] `pnpm run build` succeeds

@@ -37,16 +37,12 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           )}
 
-          {/* Hover Overlay */}
+          {/* Hover Overlay — covers full image; triggers on any hover over the card (.group) */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileHover={{ opacity: 1, y: 0 }}
-              className="bg-cream text-black text-sm font-medium px-4 py-2 flex items-center gap-2 shadow-lg"
-            >
+            <div className="opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-cream text-black text-sm font-medium px-4 py-2 flex items-center gap-2 shadow-lg">
               <Eye className="w-4 h-4" />
               Quick View
-            </motion.div>
+            </div>
           </div>
 
           {/* Category Badge */}

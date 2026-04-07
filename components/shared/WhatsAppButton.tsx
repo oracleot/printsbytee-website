@@ -25,7 +25,7 @@ export function WhatsAppButton({
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow ${className}`}
+      className={`fixed bottom-24 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow ${className}`}
     >
       <MessageCircle className="w-5 h-5" />
       <span className="font-medium text-sm hidden sm:inline">Chat on WhatsApp</span>
