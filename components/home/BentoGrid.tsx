@@ -22,6 +22,8 @@ interface BentoItem {
 }
 
 function BentoCard({ item, index }: { item: BentoItem; index: number }) {
+  const isLarge = item.span === "col-span-2 row-span-2";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -32,11 +34,11 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
     >
       <Link href={`/products/${item.slug}`} className="block h-full">
         <div
-          className="relative h-full min-h-[280px] rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl"
+          className={`relative h-full min-h-[280px] rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl ${isLarge ? "flex flex-col justify-center" : ""}`}
           style={{ background: item.gradient }}
         >
           {/* Decorative pattern overlay */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-10 overflow-hidden">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
               <pattern id={`bento-pattern-${item.id}`} x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
                 <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="none" stroke="#F5F0E8" strokeWidth="0.5" />
@@ -47,32 +49,32 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
 
           {/* Badge */}
           {item.inStock ? (
-            <span className="absolute top-3 left-3 bg-emerald text-cream text-xs px-2 py-1 font-medium tracking-wide z-10">
+            <span className="absolute top-4 left-4 bg-emerald text-cream text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded">
               In Stock
             </span>
           ) : (
-            <span className="absolute top-3 left-3 bg-gold text-black text-xs px-2 py-1 font-medium tracking-wide z-10">
+            <span className="absolute top-4 left-4 bg-gold text-black text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded">
               Pre-order
             </span>
           )}
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-20">
             <span className="bg-cream text-black text-sm font-medium px-4 py-2">
               View Product
             </span>
           </div>
 
-          {/* Bottom info */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          {/* Bottom info - always at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
             <span className="text-xs text-gold uppercase tracking-wider">
               {getCategoryLabel(item.category)}
             </span>
-            <h3 className="font-heading text-lg font-semibold text-cream group-hover:text-gold transition-colors mt-1">
+            <h3 className="font-heading text-lg font-semibold text-white group-hover:text-gold transition-colors mt-1">
               {item.name}
             </h3>
             {item.price && (
-              <p className="text-cream/80 font-medium text-sm mt-1">
+              <p className="text-white/80 font-medium text-sm mt-1">
                 {formatPrice(item.price)}
               </p>
             )}
