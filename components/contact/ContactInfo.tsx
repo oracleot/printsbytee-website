@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
+import { socialLinks } from "@/components/shared/socialLinks";
 
 function normalizePhoneNumber(raw?: string): string | undefined {
   const trimmed = raw?.trim();
@@ -11,17 +11,28 @@ function normalizePhoneNumber(raw?: string): string | undefined {
   return digits.length >= 10 ? digits : undefined;
 }
 
-const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
-];
+function formatPhoneDisplay(digits?: string): string {
+  if (!digits) return "";
+  // Format as UK/E.164-like: +44 XX XXXX XXXX
+  if (digits.startsWith("44") && digits.length === 12) {
+    return `+44 ${digits.slice(2, 4)} ${digits.slice(4, 8)} ${digits.slice(8)}`;
+  }
+  // Generic international formatting
+  return `+${digits}`;
+}
 
 export function ContactInfo() {
-  const whatsappNumber = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
-  const whatsappUrl = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}`
+  const whatsappDigits = normalizePhoneNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
+  const whatsappDisplay =
+    whatsappDigits
+      ? formatPhoneDisplay(whatsappDigits)
+      : (process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY_NUMBER ?? null);
+
+  const whatsappUrl = whatsappDigits
+    ? `https://wa.me/${whatsappDigits}`
     : "mailto:hello@printsbytee.co.uk";
+
+  const isWhatsApp = !!whatsappDigits;
 
   return (
     <motion.div
@@ -55,17 +66,22 @@ export function ContactInfo() {
           <span>hello@printsbytee.co.uk</span>
         </a>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 text-black hover:text-emerald transition-colors group"
-        >
-          <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-            <Phone className="w-5 h-5 text-gold" />
-          </div>
-          <span>WhatsApp: +44 7000 000000</span>
-        </a>
+        {whatsappDisplay && (
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-black hover:text-emerald transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+              <Phone className="w-5 h-5 text-gold" />
+            </div>
+            <span>
+              {isWhatsApp ? "WhatsApp: " : "Email: "}
+              {whatsappDisplay}
+            </span>
+          </a>
+        )}
       </div>
 
       {/* Social Links */}
