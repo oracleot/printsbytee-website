@@ -55,14 +55,13 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           </div>
 
-          {/* Category Badge */}
+          {/* Category Circle */}
           <div className="absolute top-3 left-3">
-            <Badge 
-              variant="secondary" 
-              className="bg-cream/90 text-black hover:bg-cream text-xs font-medium tracking-wide"
-            >
-              {getCategoryLabel(product.category)}
-            </Badge>
+            <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm flex items-center justify-center">
+              <span className="text-cream text-[10px] font-bold tracking-wide uppercase">
+                {getCategoryLabel(product.category)?.charAt(0) || '?'}
+              </span>
+            </div>
           </div>
 
           {/* Notify Me Badge */}

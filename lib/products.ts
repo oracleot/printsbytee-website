@@ -1,10 +1,12 @@
 import productsData from "@/data/products.json";
 
+export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suite';
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: 'laura-set' | 'short-bubu' | '2-piece-set';
+  category: ProductCategory;
   description: string;
   price: number | null;
   sizes: string[];
@@ -85,10 +87,11 @@ export function formatPrice(price: number | null): string {
 }
 
 export function getCategoryLabel(category: Product['category']): string {
-  const labels: Record<Product['category'], string> = {
-    'laura-set': 'Laura Set',
-    'short-bubu': 'Short Bubu',
-    '2-piece-set': '2-Piece Set',
+  const labels: Record<ProductCategory, string> = {
+    'lora-set': 'Lora Set',
+    'aso-oke-kimono': 'Aso Oke Kimono',
+    'fringe-bubu': 'Fringe Bubu',
+    'naya-jump-suite': 'Naya Jump Suite',
   };
   return labels[category];
 }
