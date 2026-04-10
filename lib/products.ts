@@ -73,6 +73,11 @@ export function getProductGradient(imageKey: string): string {
   return productGradients[imageKey] || 'linear-gradient(135deg, #C9A84C 0%, #1B4D3E 100%)';
 }
 
+export function getProductImage(key: string): string {
+  if (key.startsWith("/")) return key;
+  return getProductGradient(key);
+}
+
 export function formatPrice(price: number | null): string {
   if (price === null) return '';
   return `£${price}`;
