@@ -1,10 +1,12 @@
 import productsData from "@/data/products.json";
 
+export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suite';
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: 'laura-set' | 'short-bubu' | '2-piece-set';
+  category: ProductCategory;
   description: string;
   price: number | null;
   sizes: string[];
@@ -66,6 +68,7 @@ export const productGradients: Record<string, string> = {
   'gradient-navy-regal': 'linear-gradient(135deg, #1B4D3E 0%, #0D0D0D 50%, #C9A84C 100%)',
   'gradient-emerald-jungle': 'linear-gradient(135deg, #1B4D3E 0%, #C9A84C 50%, #F5F0E8 100%)',
   'gradient-blush-glow': 'linear-gradient(135deg, #F5F0E8 0%, #C9A84C 50%, #E8E3DB 100%)',
+  'gradient-red-placeholder': 'linear-gradient(135deg, #C75B39 0%, #0D0D0D 50%, #C75B39 100%)',
   'gradient-midnight-jewel': 'linear-gradient(135deg, #0D0D0D 0%, #1B4D3E 50%, #C9A84C 100%)',
 };
 
@@ -84,10 +87,11 @@ export function formatPrice(price: number | null): string {
 }
 
 export function getCategoryLabel(category: Product['category']): string {
-  const labels: Record<Product['category'], string> = {
-    'laura-set': 'Laura Set',
-    'short-bubu': 'Short Bubu',
-    '2-piece-set': '2-Piece Set',
+  const labels: Record<ProductCategory, string> = {
+    'lora-set': 'Lora Set',
+    'aso-oke-kimono': 'Aso Oke Kimono',
+    'fringe-bubu': 'Fringe Bubu',
+    'naya-jump-suite': 'Naya Jump Suite',
   };
   return labels[category];
 }

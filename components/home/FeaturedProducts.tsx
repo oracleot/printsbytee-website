@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { getProductGradient, formatPrice, getCategoryLabel, Product } from "@/lib/products";
+import { getProductImage, formatPrice, getCategoryLabel, Product } from "@/lib/products";
 
 interface FeaturedProductsProps {
   products: Product[];
@@ -43,10 +44,21 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
             >
               <Link href={`/products/${product.slug}`} className="group block">
                 {/* Product Image */}
-                <div 
-                  className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 group-hover:shadow-xl transition-shadow duration-300"
-                  style={{ background: getProductGradient(product.images[0]) }}
-                >
+                <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 group-hover:shadow-xl transition-shadow duration-300">
+                  {product.images[0].startsWith("/") ? (
+                    <Image
+                      src={product.images[0]}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                      style={{ background: getProductImage(product.images[0]) }}
+                    />
+                  )}
                   {/* Badge */}
                   {product.inStock && (
                     <span className="absolute top-3 left-3 bg-emerald text-cream text-xs px-2 py-1 font-medium tracking-wide">
