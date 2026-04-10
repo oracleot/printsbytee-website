@@ -7,7 +7,7 @@
     "description": "Crafted for the woman who commands attention without saying a word. The Royal Emerald Laura Set blends rich emerald tones with gold embroidery inspired by West African royal courts. The flowing boubou top features intricate pattern work along the neckline, paired with matching wide-leg trousers that move with effortless grace. Whether you're at a wedding, a formal dinner, or celebrating a milestone, this set speaks the language of confidence and cultural pride.",
     "price": 185,
     "sizes": ["XS", "S", "M", "L", "XL"],
-    "images": ["gradient-emerald-gold"],
+    "images": ["/laura-set-royal-emerald-1.jpg", "gradient-emerald-gold"],
     "inStock": true,
     "notifyMeEnabled": true,
     "featured": true,
