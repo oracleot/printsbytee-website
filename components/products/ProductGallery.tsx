@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductGradient, Product } from "@/lib/products";
 
@@ -12,6 +12,7 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ product }: ProductGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   const images = product.images ?? [];
   const total = images.length;
@@ -38,10 +39,10 @@ export function ProductGallery({ product }: ProductGalleryProps) {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: prefersReducedMotion ? 1 : 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
             className="absolute inset-0"
           >
             {images[currentIndex].startsWith("/") ? (
@@ -95,7 +96,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
           {images.map((image, index) => (
             <button
               type="button"
-              key={index}
+              key={`${product.id}-thumb-${index}`}
               onClick={() => setCurrentIndex(index)}
               aria-pressed={currentIndex === index}
               className={`relative w-20 h-24 flex-shrink-0 rounded-md overflow-hidden transition-all ${

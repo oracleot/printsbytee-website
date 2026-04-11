@@ -45,7 +45,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
               <Link href={`/products/${product.slug}`} className="group block">
                 {/* Product Image */}
                 <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 group-hover:shadow-xl transition-shadow duration-300">
-                  {product.images[0].startsWith("/") ? (
+                  {product.images?.[0]?.startsWith("/") ?? false ? (
                     <Image
                       src={product.images[0]}
                       alt={product.name}
@@ -56,7 +56,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                   ) : (
                     <div
                       className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-                      style={{ background: getProductImage(product.images[0]) }}
+                      style={{ background: getProductImage(product.images?.[0] ?? '') }}
                     />
                   )}
                   {/* Badge */}
@@ -87,7 +87,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                   <h3 className="font-heading text-lg font-semibold text-black group-hover:text-emerald transition-colors">
                     {product.name}
                   </h3>
-                  {product.price && (
+                  {product.price !== null && (
                     <p className="text-black/70 font-medium">
                       {formatPrice(product.price)}
                     </p>
