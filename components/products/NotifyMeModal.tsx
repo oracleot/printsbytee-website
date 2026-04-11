@@ -63,7 +63,7 @@ export function NotifyMeModal({ isOpen, onClose, productName, productId }: Notif
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={(open: boolean) => { if (!open) handleClose(); }}>
       <DialogContent className="sm:max-w-md bg-cream border-border">
         <DialogHeader>
           <DialogTitle className="font-heading text-xl text-black">
@@ -113,6 +113,7 @@ export function NotifyMeModal({ isOpen, onClose, productName, productId }: Notif
                 <Input
                   id="notify-email"
                   type="email"
+                  autoComplete="email"
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

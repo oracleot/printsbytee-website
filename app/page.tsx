@@ -1,4 +1,4 @@
-import { HeroParallax } from "@/components/home/HeroParallax";
+import { HeroSection } from "@/components/home/HeroSection";
 import { StickyScrollReveal } from "@/components/home/StickyScrollReveal";
 import { BentoGrid } from "@/components/home/BentoGrid";
 import { AnimatedTestimonials } from "@/components/home/AnimatedTestimonials";
@@ -11,7 +11,7 @@ import { products as allProducts } from "@/lib/data";
 export default function HomePage() {
   return (
     <>
-      <HeroParallax />
+      <HeroSection />
       <StickyScrollReveal />
       <BentoGrid products={allProducts} />
       <AnimatedTestimonials />
