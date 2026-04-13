@@ -100,12 +100,12 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               aria-label={`View image ${index + 1}`}
             >
               <LazyImage
-                  src={image}
-                  alt={`${product.name} thumbnail ${index + 1}`}
-                  className="object-cover"
-                  sizes="80px"
-                  gradientFallback={getProductGradient(image)}
-                />
+                src={image}
+                alt={`${product.name} thumbnail ${index + 1}`}
+                className="object-cover"
+                sizes="80px"
+                gradientFallback={getProductGradient(image)}
+              />
             </button>
           ))}
         </div>

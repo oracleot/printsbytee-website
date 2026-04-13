@@ -28,7 +28,6 @@ Implement lazy loading for the PrintsbyTee product gallery with a blur-up placeh
 interface LazyImageProps {
   src: string;
   alt: string;
-  fill?: boolean;
   sizes?: string;
   className?: string;
   gradientFallback?: string; // CSS gradient string for non-image src
@@ -36,16 +35,17 @@ interface LazyImageProps {
 ```
 
 ### Behavior
-1. **Initial State**: Shows a blurred, low-res placeholder (blur-up effect via CSS filter)
+1. **Initial State**: Shows a blurred, low-res placeholder via `next/image` `blurDataURL`
 2. **Intersection Observer**: Only loads full image when component enters viewport
-3. **Loading State**: Smooth opacity transition (0.5 → 1) once image loads
+3. **Loading State**: Smooth opacity transition (0 → 1) once image loads
 4. **Error State**: Falls back to gradient background if image fails
-5. **Blur Transition**: Uses CSS `filter: blur()` and `transform: scale()` for blur-up effect
+5. **Src Change**: Resets load/error state when `src` prop changes (safe for reuse without remounting)
+6. **Fill Mode**: Always uses `fill` internally — parent container must provide dimensions
 
 ### CSS Classes for Blur Effect
 - Container: `relative overflow-hidden`
-- Placeholder: `absolute inset-0 bg-cream/50` with `filter: blur(20px) scale(1.1)`
 - Loaded image: `opacity-100 transition-opacity duration-500`
+- Blur placeholder: handled natively by `next/image` with `placeholder="blur"` and `blurDataURL`
 
 ## Acceptance Criteria
 

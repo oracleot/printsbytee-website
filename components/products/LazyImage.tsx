@@ -26,6 +26,14 @@ export function LazyImage({
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(src);
+
+  // Reset load/error state when src changes (e.g. reused without remounting)
+  if (prevSrc !== src) {
+    setPrevSrc(src);
+    setIsLoaded(false);
+    setHasError(false);
+  }
 
   const isImageSrc = src.startsWith("/") || src.startsWith("http");
 
@@ -56,15 +64,6 @@ export function LazyImage({
 
   return (
     <div ref={containerRef} className="relative w-full h-full overflow-hidden">
-      {/* Blur placeholder shown until image is loaded */}
-      {!isLoaded && !showGradient && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cream/50"
-          style={{ filter: "blur(20px)", transform: "scale(1.1)" }}
-        />
-      )}
-
       {/* Gradient fallback for non-image srcs or errors */}
       {showGradient && (
         <div
