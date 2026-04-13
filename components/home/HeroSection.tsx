@@ -8,10 +8,12 @@ const HERO_IMAGES = [
   {
     src: "/hero_banner_1.jpg",
     alt: "PrintsByTee — bold African fashion statement",
+    position: "center 20%",
   },
   {
     src: "/hero_banner_2.jpg",
     alt: "PrintsByTee — elegant African-inspired style",
+    position: "center 20%",
   },
 ];
 
@@ -35,11 +37,11 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-black overflow-hidden">
       {/* ── Image grid ─────────────────────────────────────── */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center min-h-screen">
         {HERO_IMAGES.map((image, index) => (
           <div
             key={image.src}
-            className="relative w-full h-[50vh] md:min-h-screen overflow-hidden group"
+            className="relative w-full h-[50vh] md:h-screen overflow-hidden group"
           >
             <Image
               src={image.src}
@@ -47,6 +49,7 @@ export function HeroSection() {
               fill
               priority={index === 0}
               className="object-cover transition-transform duration-700 md:group-hover:scale-105"
+              style={{ objectPosition: image.position }}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
 
