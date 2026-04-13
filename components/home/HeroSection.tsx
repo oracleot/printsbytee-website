@@ -6,12 +6,12 @@ import { HeroOverlay } from "./HeroOverlay";
 
 const HERO_IMAGES = [
   {
-    src: "/lora-set-turquoise.jpg",
-    alt: "Lora Set in Turquoise — bold ankara print",
+    src: "/hero_banner_1.jpg",
+    alt: "PrintsByTee — bold African fashion statement",
   },
   {
-    src: "/naya-jump-suite.jpg",
-    alt: "Naya Jump Suite — structured and elegant",
+    src: "/hero_banner_2.jpg",
+    alt: "PrintsByTee — elegant African-inspired style",
   },
 ];
 
