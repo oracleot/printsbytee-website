@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const storyBlocks = [
@@ -102,38 +103,14 @@ export function StickyScrollReveal() {
             style={{ opacity, scale }}
             className="lg:sticky lg:top-24 lg:self-start rounded-2xl overflow-hidden shadow-2xl"
           >
-            <div
-              className="relative aspect-[4/5] p-8 lg:p-10 flex flex-col justify-end"
-              style={{
-                background:
-                  "linear-gradient(160deg, #1B4D3E 0%, #0D0D0D 50%, #C9A84C 100%)",
-              }}
-            >
-              {/* Decorative diamond pattern */}
-              <div className="absolute inset-0 opacity-15">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <pattern id="sticky-diamond" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-                    <path d="M4 0 L8 4 L4 8 L0 4 Z" fill="none" stroke="#F5F0E8" strokeWidth="0.4" />
-                  </pattern>
-                  <rect width="100%" height="100%" fill="url(#sticky-diamond)" />
-                </svg>
-              </div>
-
-              {/* Gold accent corner */}
-              <div className="absolute top-0 right-0 w-20 h-20 border-r-2 border-t-2 border-gold/30" />
-              <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-gold/30" />
-
-              {/* Content overlay */}
-              <div className="relative z-10">
-                <div className="bg-gold/90 backdrop-blur-sm px-4 py-2 inline-block mb-4">
-                  <span className="font-heading text-sm text-black font-bold tracking-wider">
-                    @printsbytee
-                  </span>
-                </div>
-                <blockquote className="font-heading text-2xl lg:text-3xl text-cream font-semibold leading-snug">
-                  &ldquo;Every thread tells a story of culture, confidence, and timeless elegance.&rdquo;
-                </blockquote>
-              </div>
+            <div className="relative aspect-[3/4]">
+              <Image
+                src="/every-thread-story.png"
+                alt="Every thread tells a story of culture, confidence, and timeless elegance"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </motion.div>
 

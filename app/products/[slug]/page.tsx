@@ -41,7 +41,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       {/* Breadcrumb */}
       <section className="pt-24 pb-4 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-sm text-black/60">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-black/60">
             <Link href="/" className="hover:text-gold transition-colors flex items-center gap-1">
               <Home className="w-4 h-4" />
               Home

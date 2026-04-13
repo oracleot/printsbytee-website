@@ -10,7 +10,6 @@ const BLUR_DATA_URL =
 export interface LazyImageProps {
   src: string;
   alt: string;
-  fill?: boolean;
   sizes?: string;
   className?: string;
   gradientFallback?: string;
@@ -19,7 +18,6 @@ export interface LazyImageProps {
 export function LazyImage({
   src,
   alt,
-  fill = false,
   sizes,
   className = "",
   gradientFallback,
@@ -82,7 +80,7 @@ export function LazyImage({
         <Image
           src={src}
           alt={alt}
-          fill={fill}
+          fill
           sizes={sizes}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
