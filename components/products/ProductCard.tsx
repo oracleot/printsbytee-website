@@ -23,7 +23,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       <Link href={`/products/${product.slug}`} className="group block">
         {/* Image Container */}
         <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-cream">
-          {product.images[0].startsWith("/") ? (
+          {product.images?.[0]?.startsWith("/") ?? false ? (
             <Image
               src={product.images[0]}
               alt={product.name}
@@ -34,7 +34,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           ) : (
             <div
               className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-              style={{ background: getProductImage(product.images[0]) }}
+              style={{ background: getProductImage(product.images?.[0] ?? '') }}
             />
           )}
 
@@ -83,7 +83,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.name}
           </h3>
           
-          {product.price && (
+          {product.price !== null && (
             <p className="text-gold font-semibold text-lg">
               {formatPrice(product.price)}
             </p>

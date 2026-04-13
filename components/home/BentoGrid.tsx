@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -101,7 +100,7 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
             <h3 className="font-heading text-lg font-semibold text-white group-hover:text-gold transition-colors mt-1">
               {item.name}
             </h3>
-            {item.price && (
+            {item.price !== null && (
               <p className="text-white/80 font-medium text-sm mt-1">
                 {formatPrice(item.price)}
               </p>
@@ -128,7 +127,7 @@ export function BentoGrid({ products }: BentoGridProps) {
       category: product.category,
       price: product.price,
       inStock: product.inStock,
-      imageKey: product.images[0],
+      imageKey: product.images?.[0] ?? 'gradient-emerald-gold',
       isLargeCard,
     };
   });
