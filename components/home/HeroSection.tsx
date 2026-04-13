@@ -58,13 +58,6 @@ export function HeroSection() {
 
             {/* Bottom gradient for section transition */}
             <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-
-            {/* ── Mobile text overlay (per image cell) ──── */}
-            {index === 0 && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center md:hidden">
-                <HeroOverlay reducedMotion={prefersReducedMotion} />
-              </div>
-            )}
           </div>
         ))}
       </div>
@@ -79,8 +72,8 @@ export function HeroSection() {
         style={{ background: BAND_GRADIENT }}
       />
 
-      {/* ── Desktop text overlay (centered over both images) ── */}
-      <div className="hidden md:flex absolute inset-0 z-10 items-center justify-center">
+      {/* ── Text overlay (centered over full hero) ── */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
         <HeroOverlay reducedMotion={prefersReducedMotion} />
       </div>
 
