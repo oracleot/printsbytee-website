@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductGradient, Product } from "@/lib/products";
+import { LazyImage } from "./LazyImage";
 
 interface ProductGalleryProps {
   product: Product;
@@ -44,20 +44,14 @@ export function ProductGallery({ product }: ProductGalleryProps) {
             transition={{ duration: 0.3 }}
             className="absolute inset-0"
           >
-            {images[currentIndex].startsWith("/") ? (
-              <Image
-                src={images[currentIndex]}
-                alt={`${product.name} – image ${currentIndex + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            ) : (
-              <div
-                className="absolute inset-0"
-                style={{ background: getProductGradient(images[currentIndex]) }}
-              />
-            )}
+            <LazyImage
+              src={images[currentIndex]}
+              alt={`${product.name} – image ${currentIndex + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              gradientFallback={getProductGradient(images[currentIndex])}
+            />
           </motion.div>
         </AnimatePresence>
 
@@ -105,20 +99,14 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               }`}
               aria-label={`View image ${index + 1}`}
             >
-              {image.startsWith("/") ? (
-                <Image
+              <LazyImage
                   src={image}
                   alt={`${product.name} thumbnail ${index + 1}`}
                   fill
                   className="object-cover"
                   sizes="80px"
+                  gradientFallback={getProductGradient(image)}
                 />
-              ) : (
-                <div
-                  className="absolute inset-0"
-                  style={{ background: getProductGradient(image) }}
-                />
-              )}
             </button>
           ))}
         </div>
