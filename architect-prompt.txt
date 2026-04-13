@@ -1,0 +1,174 @@
+You are performing an architect/OWASP security review of a code change.
+
+## Files to Audit
+
+### File: components/products/ProductGallery.tsx
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getProductGradient, Product } from "@/lib/products";
+
+interface ProductGalleryProps {
+  product: Product;
+}
+
+export function ProductGallery({ product }: ProductGalleryProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = product.images;
+  const total = images.length;
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Main Image */}
+      <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-cream">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0"
+          >
+            {images[currentIndex].startsWith("/") ? (
+              <Image
+                src={images[currentIndex]}
+                alt={`${product.name} – image ${currentIndex + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            ) : (
+              <div
+                className="absolute inset-0"
+                style={{ background: getProductGradient(images[currentIndex]) }}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Arrows */}
+        {total > 1 && (
+          <>
+            <button
+              onClick={goToPrevious}
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-cream/80 backdrop-blur-sm rounded-full flex items-center justify-center text-black hover:bg-cream transition-colors"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-cream/80 backdrop-blur-sm rounded-full flex items-center justify-center text-black hover:bg-cream transition-colors"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+
+        {/* Image Counter */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-cream text-xs px-3 py-1 rounded-full">
+          {currentIndex + 1} / {total}
+        </div>
+      </div>
+
+      {/* Thumbnail Strip */}
+      {total > 1 && (
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {images.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`relative w-20 h-24 flex-shrink-0 rounded-md overflow-hidden transition-all ${
+                currentIndex === index
+                  ? "ring-2 ring-gold ring-offset-2"
+                  : "opacity-60 hover:opacity-100"
+              }`}
+              aria-label={`View image ${index + 1}`}
+            >
+              {image.startsWith("/") ? (
+                <Image
+                  src={image}
+                  alt={`${product.name} thumbnail ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="80px"
+                />
+              ) : (
+                <div
+                  className="absolute inset-0"
+                  style={{ background: getProductGradient(image) }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Review Checklist
+
+Check the above code for the following, providing a severity rating (Critical / High / Medium / Low / None) with file:line references:
+
+### OWASP Top 10
+1. **A01 — Broken Access Control**: Does this introduce any new access control issues?
+2. **A02 — Cryptographic Failures**: Any new secrets, keys, or sensitive data exposure?
+3. **A03 — Injection**: XSS, SQL injection, or other injection vectors?
+4. **A04 — Insecure Design**: Architectural or design-pattern issues?
+5. **A05 — Security Misconfiguration**: Defaults, misconfigured headers, verbose errors?
+6. **A06 — Vulnerable Components**: Any new third-party dependencies?
+7. **A07 — Authentication Failures**: Any auth-related changes?
+8. **A08 — Software Integrity Failures**: CI/CD or supply chain issues?
+9. **A09 — Logging & Monitoring**: Any security-event gaps?
+10. **A10 — SSRF**: Any new server-side request patterns?
+
+### Performance
+- N+1 queries or inefficient data access patterns?
+- Unoptimized image usage?
+
+### Accessibility / UX
+- Missing alt text on images?
+- Keyboard navigation issues?
+- ARIA label gaps?
+
+### General Code Quality
+- Potential runtime errors?
+- Edge cases not handled?
+
+Format your response as:
+```
+## Findings
+
+### Critical
+(list)
+
+### High
+(list)
+
+### Medium
+(list)
+
+### Low
+(list)
+
+### Notes
+(general observations)
+```
