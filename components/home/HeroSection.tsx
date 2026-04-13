@@ -15,9 +15,19 @@ const HERO_IMAGES = [
   },
 ];
 
-/** Radial vignette — dark from all edges, transparent center */
-const VIGNETTE =
-  "radial-gradient(ellipse at center, transparent 30%, rgba(13,13,13,0.85) 100%)";
+/**
+ * Layered gradient scrim system for text legibility over photography.
+ *
+ * 1. CENTER_SCRIM  — soft dark wash where text sits (radial, center-biased)
+ * 2. BAND_GRADIENT — vertical band darkening the mid-viewport
+ * 3. EDGE_VIGNETTE — subtle edge burn for cinematic framing
+ */
+const CENTER_SCRIM =
+  "radial-gradient(ellipse 60% 45% at 50% 48%, rgba(13,13,13,0.78) 0%, rgba(13,13,13,0.4) 50%, transparent 100%)";
+const BAND_GRADIENT =
+  "linear-gradient(to bottom, rgba(13,13,13,0.25) 0%, rgba(13,13,13,0.6) 30%, rgba(13,13,13,0.68) 50%, rgba(13,13,13,0.6) 70%, rgba(13,13,13,0.35) 100%)";
+const EDGE_VIGNETTE =
+  "radial-gradient(ellipse at center, transparent 45%, rgba(13,13,13,0.55) 100%)";
 
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
@@ -40,10 +50,10 @@ export function HeroSection() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
 
-            {/* Radial vignette overlay */}
+            {/* Edge vignette per image cell */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: VIGNETTE }}
+              style={{ background: EDGE_VIGNETTE }}
             />
 
             {/* Bottom gradient for section transition */}
@@ -58,6 +68,16 @@ export function HeroSection() {
           </div>
         ))}
       </div>
+
+      {/* ── Gradient scrim for text contrast ────────────── */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[5]"
+        style={{ background: CENTER_SCRIM }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none z-[5]"
+        style={{ background: BAND_GRADIENT }}
+      />
 
       {/* ── Desktop text overlay (centered over both images) ── */}
       <div className="hidden md:flex absolute inset-0 z-10 items-center justify-center">
