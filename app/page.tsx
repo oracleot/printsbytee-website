@@ -12,8 +12,8 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StickyScrollReveal />
       <BentoGrid products={allProducts} />
+      <StickyScrollReveal />
       <AnimatedTestimonials />
       <PatternDivider />
       {/* <NewsletterForm /> — hidden until API integration is complete */}

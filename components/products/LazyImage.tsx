@@ -10,28 +10,41 @@ const BLUR_DATA_URL =
 export interface LazyImageProps {
   src: string;
   alt: string;
-  fill?: boolean;
   sizes?: string;
   className?: string;
   gradientFallback?: string;
+  /** Skip Intersection Observer and render immediately */
+  eager?: boolean;
+  /** Mark as LCP image — sets next/image priority */
+  priority?: boolean;
 }
 
 export function LazyImage({
   src,
   alt,
-  fill = false,
   sizes,
   className = "",
   gradientFallback,
+  eager = false,
+  priority = false,
 }: LazyImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(eager);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(src);
+
+  // Reset load/error state when src changes (e.g. reused without remounting)
+  if (prevSrc !== src) {
+    setPrevSrc(src);
+    setIsLoaded(false);
+    setHasError(false);
+  }
 
   const isImageSrc = src.startsWith("/") || src.startsWith("http");
 
   useEffect(() => {
+    if (eager) return;
     const el = containerRef.current;
     if (!el) return;
 
@@ -47,7 +60,7 @@ export function LazyImage({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [eager]);
 
   const showGradient =
     !isImageSrc || hasError;
@@ -58,19 +71,10 @@ export function LazyImage({
 
   return (
     <div ref={containerRef} className="relative w-full h-full overflow-hidden">
-      {/* Blur placeholder shown until image is loaded */}
-      {!isLoaded && !showGradient && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cream/50"
-          style={{ filter: "blur(20px)", transform: "scale(1.1)" }}
-        />
-      )}
-
       {/* Gradient fallback for non-image srcs or errors */}
       {showGradient && (
         <div
-          className="absolute inset-0"
+          className={`absolute inset-0 ${className}`}
           style={gradientStyle}
           role="img"
           aria-label={alt}
@@ -82,12 +86,15 @@ export function LazyImage({
         <Image
           src={src}
           alt={alt}
-          fill={fill}
+          fill
           sizes={sizes}
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-          className={`${className} transition-opacity duration-500 ${
-            isLoaded ? "opacity-100" : "opacity-0"
+          priority={priority}
+          placeholder={priority ? undefined : "blur"}
+          blurDataURL={priority ? undefined : BLUR_DATA_URL}
+          className={`${className} ${
+            eager
+              ? "opacity-100"
+              : `transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`
           }`}
           onLoad={() => setIsLoaded(true)}
           onError={() => setHasError(true)}

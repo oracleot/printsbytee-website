@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductGradient, Product } from "@/lib/products";
 import { LazyImage } from "./LazyImage";
@@ -12,9 +12,23 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ product }: ProductGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   const images = product.images ?? [];
   const total = images.length;
+
+  // Preload all product images so switching is instant
+  useEffect(() => {
+    images.forEach((src) => {
+      if (src.startsWith("/") || src.startsWith("http")) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = src;
+        document.head.appendChild(link);
+      }
+    });
+  }, [images]);
 
   // Guard: if no images, render nothing visible
   if (total === 0) {
@@ -38,19 +52,20 @@ export function ProductGallery({ product }: ProductGalleryProps) {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: prefersReducedMotion ? 1 : 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
             className="absolute inset-0"
           >
             <LazyImage
               src={images[currentIndex]}
               alt={`${product.name} – image ${currentIndex + 1}`}
-              fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               gradientFallback={getProductGradient(images[currentIndex])}
+              eager
+              priority
             />
           </motion.div>
         </AnimatePresence>
@@ -85,11 +100,11 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
       {/* Thumbnail Strip */}
       {total > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="relative flex gap-2 overflow-x-auto pb-2">
           {images.map((image, index) => (
             <button
               type="button"
-              key={index}
+              key={`${product.id}-thumb-${index}`}
               onClick={() => setCurrentIndex(index)}
               aria-pressed={currentIndex === index}
               className={`relative w-20 h-24 flex-shrink-0 rounded-md overflow-hidden transition-all ${
@@ -100,13 +115,12 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               aria-label={`View image ${index + 1}`}
             >
               <LazyImage
-                  src={image}
-                  alt={`${product.name} thumbnail ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="80px"
-                  gradientFallback={getProductGradient(image)}
-                />
+                src={image}
+                alt={`${product.name} thumbnail ${index + 1}`}
+                className="object-cover"
+                sizes="80px"
+                gradientFallback={getProductGradient(image)}
+              />
             </button>
           ))}
         </div>

@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-screen flex flex-col bg-offwhite text-black antialiased">
         <Header />
         <main className="flex-1">{children}</main>

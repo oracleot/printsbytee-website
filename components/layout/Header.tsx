@@ -40,14 +40,17 @@ export function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo.svg"
-                alt="PrintsbyTee"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
-                priority
-              />
+              <div className="h-12 w-12 flex-shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="PrintsbyTee"
+                  width={48}
+                  height={48}
+                  className="h-full w-full"
+                  style={{ width: "auto", height: "auto" }}
+                  priority
+                />
+              </div>
               <span className="hidden sm:inline font-serif text-xl font-semibold text-black tracking-wide">
                 PrintsbyTee
               </span>
