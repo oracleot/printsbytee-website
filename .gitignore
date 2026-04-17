@@ -40,10 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# AI/architect logs and working docs
-architect-*.txt
-architect-*.md
-opencode-output*.md
-hero-review.md
-audit-findings.md
-SPEC-*.md
+# Working docs (specs, audits, AI logs, reviews)
+/docs/
