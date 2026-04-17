@@ -20,13 +20,16 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Image
-                src="/logo.svg"
-                alt="PrintsbyTee"
-                width={48}
-                height={48}
-                className="h-12 w-auto brightness-0 invert"
-              />
+              <div className="h-12 w-12 flex-shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="PrintsbyTee"
+                  width={48}
+                  height={48}
+                  className="h-full w-full brightness-0 invert"
+                  style={{ width: "auto", height: "auto" }}
+                />
+              </div>
               <span className="font-heading text-xl font-bold text-cream">PrintsbyTee</span>
             </Link>
             <p className="text-cream/70 text-sm leading-relaxed max-w-xs">

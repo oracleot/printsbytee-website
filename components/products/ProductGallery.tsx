@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductGradient, Product } from "@/lib/products";
@@ -16,6 +16,19 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
   const images = product.images ?? [];
   const total = images.length;
+
+  // Preload all product images so switching is instant
+  useEffect(() => {
+    images.forEach((src) => {
+      if (src.startsWith("/") || src.startsWith("http")) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = src;
+        document.head.appendChild(link);
+      }
+    });
+  }, [images]);
 
   // Guard: if no images, render nothing visible
   if (total === 0) {
@@ -52,7 +65,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
               gradientFallback={getProductGradient(images[currentIndex])}
               eager
-              priority={currentIndex === 0}
+              priority
             />
           </motion.div>
         </AnimatePresence>
@@ -87,7 +100,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
       {/* Thumbnail Strip */}
       {total > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="relative flex gap-2 overflow-x-auto pb-2">
           {images.map((image, index) => (
             <button
               type="button"
