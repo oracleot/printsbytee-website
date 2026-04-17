@@ -13,6 +13,10 @@ export interface LazyImageProps {
   sizes?: string;
   className?: string;
   gradientFallback?: string;
+  /** Skip Intersection Observer and render immediately */
+  eager?: boolean;
+  /** Mark as LCP image — sets next/image priority */
+  priority?: boolean;
 }
 
 export function LazyImage({
@@ -21,9 +25,11 @@ export function LazyImage({
   sizes,
   className = "",
   gradientFallback,
+  eager = false,
+  priority = false,
 }: LazyImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(eager);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [prevSrc, setPrevSrc] = useState(src);
@@ -38,6 +44,7 @@ export function LazyImage({
   const isImageSrc = src.startsWith("/") || src.startsWith("http");
 
   useEffect(() => {
+    if (eager) return;
     const el = containerRef.current;
     if (!el) return;
 
@@ -53,7 +60,7 @@ export function LazyImage({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [eager]);
 
   const showGradient =
     !isImageSrc || hasError;
@@ -67,7 +74,7 @@ export function LazyImage({
       {/* Gradient fallback for non-image srcs or errors */}
       {showGradient && (
         <div
-          className="absolute inset-0"
+          className={`absolute inset-0 ${className}`}
           style={gradientStyle}
           role="img"
           aria-label={alt}
@@ -81,8 +88,9 @@ export function LazyImage({
           alt={alt}
           fill
           sizes={sizes}
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
+          priority={priority}
+          placeholder={priority ? undefined : "blur"}
+          blurDataURL={priority ? undefined : BLUR_DATA_URL}
           className={`${className} transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}

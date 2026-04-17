@@ -51,6 +51,8 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               gradientFallback={getProductGradient(images[currentIndex])}
+              eager
+              priority={currentIndex === 0}
             />
           </motion.div>
         </AnimatePresence>
