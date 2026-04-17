@@ -95,3 +95,74 @@ export function getCategoryLabel(category: Product['category']): string {
   };
   return labels[category];
 }
+
+export interface SizeChartEntry {
+  size: string;
+  uk: string;
+  bust: string;
+  waist: string;
+  hips: string;
+  length: string;
+}
+
+export interface SizeChart {
+  category: ProductCategory;
+  description: string;
+  notes: string;
+  measurements: SizeChartEntry[];
+}
+
+export const sizeCharts: Record<ProductCategory, SizeChart> = {
+  'lora-set': {
+    category: 'lora-set',
+    description: 'Two-piece crop top and skirt set — African wax print with minimal stretch',
+    notes: 'Recommend sizing up if between sizes. Top is cropped — check length measurement.',
+    measurements: [
+      { size: 'XS', uk: '6-8',  bust: '30-32"', waist: '24-26"', hips: '34-36"', length: 'Top: 14" / Skirt: 16"' },
+      { size: 'S',  uk: '8-10', bust: '32-34"', waist: '26-28"', hips: '36-38"', length: 'Top: 15" / Skirt: 17"' },
+      { size: 'M',  uk: '10-12', bust: '34-36"', waist: '28-30"', hips: '38-40"', length: 'Top: 16" / Skirt: 18"' },
+      { size: 'L',  uk: '12-14', bust: '36-38"', waist: '30-32"', hips: '40-42"', length: 'Top: 17" / Skirt: 19"' },
+      { size: 'XL', uk: '14-16', bust: '38-40"', waist: '32-34"', hips: '42-44"', length: 'Top: 18" / Skirt: 20"' },
+    ],
+  },
+  'aso-oke-kimono': {
+    category: 'aso-oke-kimono',
+    description: 'Flowing kimono-style cover-up — Aso Oke is stiff and structured',
+    notes: 'Designed to drape loosely. Check shoulder width and total length for your height.',
+    measurements: [
+      { size: 'XS', uk: '6-8',  bust: '32-34"', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 16" / Total: 42"' },
+      { size: 'S',  uk: '8-10', bust: '34-36"', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 17" / Total: 43"' },
+      { size: 'M',  uk: '10-12', bust: '36-38"', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 18" / Total: 44"' },
+      { size: 'L',  uk: '12-14', bust: '38-40"', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 19" / Total: 45"' },
+      { size: 'XL', uk: '14-16', bust: '40-42"', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 20" / Total: 46"' },
+    ],
+  },
+  'fringe-bubu': {
+    category: 'fringe-bubu',
+    description: 'Loose-fitting traditional bubu with fringe detailing',
+    notes: 'Relaxed, oversized fit — size down for a more fitted look. Fringe adds ~2" to hem.',
+    measurements: [
+      { size: 'XS', uk: '6-8',  bust: '34-36"', waist: 'n/a', hips: '38-40"', length: '38" + 2" fringe' },
+      { size: 'S',  uk: '8-10', bust: '36-38"', waist: 'n/a', hips: '40-42"', length: '39" + 2" fringe' },
+      { size: 'M',  uk: '10-12', bust: '38-40"', waist: 'n/a', hips: '42-44"', length: '40" + 2" fringe' },
+      { size: 'L',  uk: '12-14', bust: '40-42"', waist: 'n/a', hips: '44-46"', length: '41" + 2" fringe' },
+      { size: 'XL', uk: '14-16', bust: '42-44"', waist: 'n/a', hips: '46-48"', length: '42" + 2" fringe' },
+    ],
+  },
+  'naya-jump-suite': {
+    category: 'naya-jump-suite',
+    description: 'Tailored jumpsuit with belt included — body-flattering silhouette',
+    notes: 'Material has slight stretch. Check hip and inseam measurements before ordering.',
+    measurements: [
+      { size: 'XS', uk: '6-8',  bust: '30-32"', waist: '24-26"', hips: '34-36"', length: 'Inseam: 28"' },
+      { size: 'S',  uk: '8-10', bust: '32-34"', waist: '26-28"', hips: '36-38"', length: 'Inseam: 29"' },
+      { size: 'M',  uk: '10-12', bust: '34-36"', waist: '28-30"', hips: '38-40"', length: 'Inseam: 30"' },
+      { size: 'L',  uk: '12-14', bust: '36-38"', waist: '30-32"', hips: '40-42"', length: 'Inseam: 31"' },
+      { size: 'XL', uk: '14-16', bust: '38-40"', waist: '32-34"', hips: '42-44"', length: 'Inseam: 32"' },
+    ],
+  },
+};
+
+export function getSizeChart(category: ProductCategory): SizeChart {
+  return sizeCharts[category];
+}
