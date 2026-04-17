@@ -99,9 +99,6 @@ export function getCategoryLabel(category: Product['category']): string {
 export interface SizeChartEntry {
   size: string;
   uk: string;
-  waist: string;
-  hips: string;
-  length: string;
 }
 
 export interface SizeChart {
@@ -117,11 +114,11 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     description: 'Two-piece crop top and skirt set — African wax print with minimal stretch',
     notes: 'Recommend sizing up if between sizes. Top is cropped — check length measurement.',
     measurements: [
-      { size: 'S',   uk: '8-10',  waist: '26-28"', hips: '36-38"', length: 'Top: 15" / Skirt: 17"' },
-      { size: 'M',   uk: '10-12', waist: '28-30"', hips: '38-40"', length: 'Top: 16" / Skirt: 18"' },
-      { size: 'L',   uk: '12-14', waist: '30-32"', hips: '40-42"', length: 'Top: 17" / Skirt: 19"' },
-      { size: 'XL',  uk: '14-16', waist: '32-34"', hips: '42-44"', length: 'Top: 18" / Skirt: 20"' },
-      { size: 'XXL', uk: '16-18', waist: '34-36"', hips: '44-46"', length: 'Top: 19" / Skirt: 21"' },
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '16-18' },
     ],
   },
   'aso-oke-kimono': {
@@ -129,11 +126,11 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     description: 'Flowing kimono-style cover-up — Aso Oke is stiff and structured',
     notes: 'Designed to drape loosely. Check shoulder width and total length for your height.',
     measurements: [
-      { size: 'S',   uk: '8-10',  waist: 'n/a', hips: 'n/a', length: 'Shoulder: 17" / Total: 43"' },
-      { size: 'M',   uk: '10-12', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 18" / Total: 44"' },
-      { size: 'L',   uk: '12-14', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 19" / Total: 45"' },
-      { size: 'XL',  uk: '14-16', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 20" / Total: 46"' },
-      { size: 'XXL', uk: '16-18', waist: 'n/a', hips: 'n/a', length: 'Shoulder: 21" / Total: 47"' },
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '16-18' },
     ],
   },
   'fringe-bubu': {
@@ -141,11 +138,11 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     description: 'Loose-fitting traditional bubu with fringe detailing',
     notes: 'Relaxed, oversized fit — size down for a more fitted look. Fringe adds ~2" to hem.',
     measurements: [
-      { size: 'S',   uk: '8-10',  waist: 'n/a', hips: '40-42"', length: '39" + 2" fringe' },
-      { size: 'M',   uk: '10-12', waist: 'n/a', hips: '42-44"', length: '40" + 2" fringe' },
-      { size: 'L',   uk: '12-14', waist: 'n/a', hips: '44-46"', length: '41" + 2" fringe' },
-      { size: 'XL',  uk: '14-16', waist: 'n/a', hips: '46-48"', length: '42" + 2" fringe' },
-      { size: 'XXL', uk: '16-18', waist: 'n/a', hips: '48-50"', length: '43" + 2" fringe' },
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '16-18' },
     ],
   },
   'naya-jump-suite': {
@@ -153,11 +150,11 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     description: 'Tailored jumpsuit with belt included — body-flattering silhouette',
     notes: 'Material has slight stretch. Check hip and inseam measurements before ordering.',
     measurements: [
-      { size: 'S',   uk: '8-10',  waist: '26-28"', hips: '36-38"', length: 'Inseam: 29"' },
-      { size: 'M',   uk: '10-12', waist: '28-30"', hips: '38-40"', length: 'Inseam: 30"' },
-      { size: 'L',   uk: '12-14', waist: '30-32"', hips: '40-42"', length: 'Inseam: 31"' },
-      { size: 'XL',  uk: '14-16', waist: '32-34"', hips: '42-44"', length: 'Inseam: 32"' },
-      { size: 'XXL', uk: '16-18', waist: '34-36"', hips: '44-46"', length: 'Inseam: 33"' },
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '16-18' },
     ],
   },
 };
