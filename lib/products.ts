@@ -163,6 +163,6 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
   },
 };
 
-export function getSizeChart(category: ProductCategory): SizeChart {
+export function getSizeChart(category: ProductCategory): SizeChart | undefined {
   return sizeCharts[category];
 }
