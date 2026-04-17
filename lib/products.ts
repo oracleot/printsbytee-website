@@ -118,7 +118,7 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
       { size: 'M',   uk: '10-12' },
       { size: 'L',   uk: '12-14' },
       { size: 'XL',  uk: '14-16' },
-      { size: 'XXL', uk: '16-18' },
+      { size: 'XXL', uk: '18-20' },
     ],
   },
   'aso-oke-kimono': {
@@ -130,7 +130,7 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
       { size: 'M',   uk: '10-12' },
       { size: 'L',   uk: '12-14' },
       { size: 'XL',  uk: '14-16' },
-      { size: 'XXL', uk: '16-18' },
+      { size: 'XXL', uk: '18-20' },
     ],
   },
   'fringe-bubu': {
@@ -142,7 +142,7 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
       { size: 'M',   uk: '10-12' },
       { size: 'L',   uk: '12-14' },
       { size: 'XL',  uk: '14-16' },
-      { size: 'XXL', uk: '16-18' },
+      { size: 'XXL', uk: '18-20' },
     ],
   },
   'naya-jump-suite': {
@@ -154,7 +154,7 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
       { size: 'M',   uk: '10-12' },
       { size: 'L',   uk: '12-14' },
       { size: 'XL',  uk: '14-16' },
-      { size: 'XXL', uk: '16-18' },
+      { size: 'XXL', uk: '18-20' },
     ],
   },
 };
