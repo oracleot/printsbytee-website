@@ -28,6 +28,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               src={product.images[0]}
               alt={product.name}
               fill
+              priority={index < 4}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
@@ -57,8 +58,13 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
 
           {/* Category Circle */}
           <div className="absolute top-3 left-3">
-            <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm flex items-center justify-center">
-              <span className="text-cream text-[10px] font-bold tracking-wide uppercase">
+            <div
+              className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm flex items-center justify-center"
+              aria-label={getCategoryLabel(product.category) ?? 'Unknown category'}
+              title={getCategoryLabel(product.category) ?? 'Unknown category'}
+              role="img"
+            >
+              <span className="text-cream text-[10px] font-bold tracking-wide uppercase" aria-hidden="true">
                 {getCategoryLabel(product.category)?.charAt(0) || '?'}
               </span>
             </div>

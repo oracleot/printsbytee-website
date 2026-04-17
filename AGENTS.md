@@ -27,3 +27,6 @@ All changes must follow:
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
+
+### Visual Verification Rule
+After every UI change, visit the affected page(s) in the browser (using agent-browser) and take a screenshot to verify the change looks correct before considering the task complete. At minimum, check the landing page (`/`), products page (`/products`), and any specific page that was modified.

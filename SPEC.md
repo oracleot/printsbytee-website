@@ -4,7 +4,7 @@
 The product detail page (`ProductGallery.tsx`) always renders gradient backgrounds via `getProductGradient()`, ignoring real image paths (like `/laura-set-royal-emerald-1.jpg`). Meanwhile `ProductCard.tsx` correctly checks `product.images[0].startsWith("/")` and uses Next.js `<Image>` for real photos. This makes the product listing show the actual photo but the detail page show only a gradient.
 
 ## Tech
-- Next.js 15, TypeScript, Tailwind CSS
+- Next.js 16.2.2, React 19, TypeScript, Tailwind CSS 4
 - Next.js `<Image>` component with `fill` + `sizes` for optimized real images
 - Framer Motion for gallery transitions
 - Same image/gradient pattern already working in `ProductCard.tsx`
