@@ -7,11 +7,11 @@
     "description": "A stunning turquoise two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/lora-set-turquoise.jpg",
@@ -30,11 +30,11 @@
     "description": "A stunning green two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/lora-set-green.jpg",
@@ -53,11 +53,11 @@
     "description": "A striking red and black two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/lora-set-red-black.jpg",
@@ -76,11 +76,11 @@
     "description": "A sophisticated navy blue two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/lora-set-navy-blue.jpg",
@@ -99,11 +99,11 @@
     "description": "A bold red two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "gradient-red-placeholder"
@@ -121,11 +121,11 @@
     "description": "A traditional Aso Oke Kimono Set \u2014 handwoven luxury for the bold and beautiful.",
     "price": 40,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/aso-oke-kimono-set.jpg"
@@ -141,13 +141,13 @@
     "name": "Fringe Bubu",
     "category": "fringe-bubu",
     "description": "Elegant fringe bubu \u2014 a contemporary take on traditional African wear for the bold and beautiful.",
-    "price": 30,
+    "price": 35,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/fringe-bubu.jpg",
@@ -166,11 +166,11 @@
     "description": "The Naya Jump Suite \u2014 statement African fashion for the bold and beautiful.",
     "price": 35,
     "sizes": [
-      "XS",
       "S",
       "M",
       "L",
-      "XL"
+      "XL",
+      "XXL"
     ],
     "images": [
       "/naya-jump-suite.jpg",

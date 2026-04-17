@@ -33,7 +33,6 @@ export function ProductAccordion({ category, sizes }: ProductAccordionProps) {
                 <tr className="border-b border-border">
                   <th className="py-1.5 pr-3 text-left font-semibold">Size</th>
                   <th className="py-1.5 pr-3 text-left font-semibold">UK</th>
-                  <th className="py-1.5 pr-3 text-left font-semibold">Bust</th>
                   <th className="py-1.5 pr-3 text-left font-semibold">Waist</th>
                   <th className="py-1.5 pr-3 text-left font-semibold">Hips</th>
                   <th className="py-1.5 text-left font-semibold">Length / Notes</th>
@@ -44,7 +43,6 @@ export function ProductAccordion({ category, sizes }: ProductAccordionProps) {
                   <tr key={row.size} className="border-b border-border/40">
                     <td className="py-2 pr-3 font-semibold">{row.size}</td>
                     <td className="py-2 pr-3">{row.uk}</td>
-                    <td className="py-2 pr-3">{row.bust}</td>
                     <td className="py-2 pr-3">{row.waist}</td>
                     <td className="py-2 pr-3">{row.hips}</td>
                     <td className="py-2">{row.length}</td>
