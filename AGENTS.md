@@ -21,6 +21,9 @@ All changes must follow:
 4. Architect review gate (security-auditor) before PR
 5. Raise PR for review
 
+### Working Docs
+All specs, audit reports, AI logs, and review notes go in `docs/`. This directory is gitignored — never commit working docs to the repo root.
+
 ### Tech Stack
 - Next.js 15+ (App Router)
 - TypeScript

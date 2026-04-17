@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { getCategoryLabel, type Product } from "@/lib/products";
+import { getCategoryLabel, getSizeChart, type Product } from "@/lib/products";
 
 interface ProductAccordionProps {
   category: Product["category"];
@@ -9,6 +9,8 @@ interface ProductAccordionProps {
 }
 
 export function ProductAccordion({ category, sizes }: ProductAccordionProps) {
+  const chart = getSizeChart(category);
+
   return (
     <Accordion className="w-full">
       <AccordionItem value="product-details">
@@ -23,17 +25,41 @@ export function ProductAccordion({ category, sizes }: ProductAccordionProps) {
 
       <AccordionItem value="sizing-guide">
         <AccordionTrigger className="text-sm font-medium">Sizing Guide</AccordionTrigger>
-        <AccordionContent className="text-sm text-black/70 space-y-2">
-          <table className="w-full">
-            <tbody>
-              <tr><td className="py-1"><strong>XS</strong></td><td>UK 6-8</td><td>Chest: 32-34&quot;</td></tr>
-              <tr><td className="py-1"><strong>S</strong></td><td>UK 8-10</td><td>Chest: 34-36&quot;</td></tr>
-              <tr><td className="py-1"><strong>M</strong></td><td>UK 10-12</td><td>Chest: 36-38&quot;</td></tr>
-              <tr><td className="py-1"><strong>L</strong></td><td>UK 12-14</td><td>Chest: 38-40&quot;</td></tr>
-              <tr><td className="py-1"><strong>XL</strong></td><td>UK 14-16</td><td>Chest: 40-42&quot;</td></tr>
-            </tbody>
-          </table>
-          <p className="mt-2 text-xs">When in doubt, size up for the perfect fit.</p>
+        <AccordionContent className="text-sm text-black/70 space-y-3">
+          {chart ? (
+            <>
+              <p className="text-xs text-black/60 italic">{chart.description}</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="py-1.5 pr-3 text-left font-semibold">Size</th>
+                      <th className="py-1.5 pr-3 text-left font-semibold">UK</th>
+                      <th className="py-1.5 pr-3 text-left font-semibold">Bust</th>
+                      <th className="py-1.5 pr-3 text-left font-semibold">Waist</th>
+                      <th className="py-1.5 pr-3 text-left font-semibold">Hips</th>
+                      <th className="py-1.5 text-left font-semibold">Length / Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {chart.measurements.map((row) => (
+                      <tr key={row.size} className="border-b border-border/40">
+                        <td className="py-2 pr-3 font-semibold">{row.size}</td>
+                        <td className="py-2 pr-3">{row.uk}</td>
+                        <td className="py-2 pr-3">{row.bust}</td>
+                        <td className="py-2 pr-3">{row.waist}</td>
+                        <td className="py-2 pr-3">{row.hips}</td>
+                        <td className="py-2">{row.length}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-2 text-xs text-gold font-medium">{chart.notes}</p>
+            </>
+          ) : (
+            <p className="text-xs text-black/50">Size guide not available for this category.</p>
+          )}
         </AccordionContent>
       </AccordionItem>
 
