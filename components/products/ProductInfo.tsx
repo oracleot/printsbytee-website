@@ -102,7 +102,7 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
       />
 
       {/* Product Details Accordion */}
-      <ProductAccordion category={product.category} sizes={product.sizes} />
+      <ProductAccordion category={product.category} />
     </motion.div>
   );
 }

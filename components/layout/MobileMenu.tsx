@@ -29,7 +29,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
       {/* Menu header */}
       <div className="flex items-center justify-between px-6 h-20 border-b border-border">
         <Link href="/" onClick={onClose} className="flex items-center">
-          <Image src="/logo.svg" alt="PrintsbyTee" width={40} height={40} className="h-10 w-auto" />
+          <div className="h-10 w-10 flex-shrink-0"><Image src="/logo.svg" alt="PrintsbyTee" width={40} height={40} className="h-full w-full" style={{ width: "auto", height: "auto" }} /></div>
         </Link>
         <button onClick={onClose} className="p-2 text-black" aria-label="Close menu">
           <X className="w-6 h-6" />

@@ -33,7 +33,9 @@ export function ProductGrid({ products }: ProductGridProps) {
         {filters.map((filter) => (
           <button
             key={filter.value}
+            type="button"
             onClick={() => setActiveFilter(filter.value)}
+            aria-pressed={activeFilter === filter.value}
             className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
               activeFilter === filter.value
                 ? "bg-black text-cream"
@@ -46,7 +48,7 @@ export function ProductGrid({ products }: ProductGridProps) {
       </div>
 
       {/* Product Count */}
-      <p className="text-center text-sm text-black/60">
+      <p aria-live="polite" className="text-center text-sm text-black/60">
         Showing {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
       </p>
 
