@@ -6,7 +6,7 @@ import { products } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Our Collection — PrintsbyTee",
-  description: "Explore our collection of premium African print fashion. Laura Sets, Short Bubus, and 2-Piece Sets for bold and beautiful women.",
+  description: "Explore our collection of premium African print fashion. Lora Sets, Aso Oke Kimonos, Fringe Bubus, and Naya Jump Suites for bold and beautiful women.",
 };
 
 export default function ProductsPage() {

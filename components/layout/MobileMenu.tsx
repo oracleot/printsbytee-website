@@ -4,13 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
-
-const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
-];
+import { socialLinks } from "@/components/shared/socialLinks";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -35,7 +29,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
       {/* Menu header */}
       <div className="flex items-center justify-between px-6 h-20 border-b border-border">
         <Link href="/" onClick={onClose} className="flex items-center">
-          <Image src="/logo.svg" alt="PrintsbyTee" width={40} height={40} className="h-10 w-auto" />
+          <div className="h-10 w-10 flex-shrink-0"><Image src="/logo.svg" alt="PrintsbyTee" width={40} height={40} className="h-full w-full" style={{ width: "auto", height: "auto" }} /></div>
         </Link>
         <button onClick={onClose} className="p-2 text-black" aria-label="Close menu">
           <X className="w-6 h-6" />

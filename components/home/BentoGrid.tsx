@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { getProductGradient, formatPrice, getCategoryLabel, Product } from "@/lib/products";
+import { getProductImage, formatPrice, getCategoryLabel, Product } from "@/lib/products";
 
 interface BentoGridProps {
   products: Product[];
@@ -17,7 +17,7 @@ interface BentoItem {
   category: Product["category"];
   price: number | null;
   inStock: boolean;
-  gradient: string;
+  imageKey: string;
   isLargeCard: boolean;
 }
 
@@ -48,8 +48,22 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
       <Link href={`/products/${item.slug}`} className="block h-full">
         <div
           className={`relative h-full ${minHeight} rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl ${innerLayout}`}
-          style={{ background: item.gradient }}
         >
+          {/* Product Image or Gradient */}
+          {item.imageKey.startsWith("/") ? (
+            <Image
+              src={item.imageKey}
+              alt={item.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 25vw"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{ background: getProductImage(item.imageKey) }}
+            />
+          )}
           {/* Decorative pattern overlay */}
           <div className="absolute inset-0 opacity-10 overflow-hidden">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -86,7 +100,7 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
             <h3 className="font-heading text-lg font-semibold text-white group-hover:text-gold transition-colors mt-1">
               {item.name}
             </h3>
-            {item.price && (
+            {item.price !== null && (
               <p className="text-white/80 font-medium text-sm mt-1">
                 {formatPrice(item.price)}
               </p>
@@ -113,7 +127,7 @@ export function BentoGrid({ products }: BentoGridProps) {
       category: product.category,
       price: product.price,
       inStock: product.inStock,
-      gradient: getProductGradient(product.images[0]),
+      imageKey: product.images?.[0] ?? 'gradient-emerald-gold',
       isLargeCard,
     };
   });

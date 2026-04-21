@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
+import { socialLinks } from "@/components/shared/socialLinks";
 import { MobileMenu } from "./MobileMenu";
 import { Menu, X } from "lucide-react";
 
@@ -12,12 +12,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact" },
-];
-
-const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
 ];
 
 export function Header() {
@@ -46,14 +40,17 @@ export function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo.svg"
-                alt="PrintsbyTee"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
-                priority
-              />
+              <div className="h-12 w-12 flex-shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="PrintsbyTee"
+                  width={48}
+                  height={48}
+                  className="h-full w-full"
+                  style={{ width: "auto", height: "auto" }}
+                  priority
+                />
+              </div>
               <span className="hidden sm:inline font-serif text-xl font-semibold text-black tracking-wide">
                 PrintsbyTee
               </span>

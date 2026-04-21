@@ -21,9 +21,15 @@ All changes must follow:
 4. Architect review gate (security-auditor) before PR
 5. Raise PR for review
 
+### Working Docs
+All specs, audit reports, AI logs, and review notes go in `docs/`. This directory is gitignored — never commit working docs to the repo root.
+
 ### Tech Stack
 - Next.js 15+ (App Router)
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
+
+### Visual Verification Rule
+After every UI change, visit the affected page(s) in the browser (using agent-browser) and take a screenshot to verify the change looks correct before considering the task complete. At minimum, check the landing page (`/`), products page (`/products`), and any specific page that was modified.

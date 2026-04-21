@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
-import { getProductGradient, formatPrice, getCategoryLabel, Product } from "@/lib/products";
+import { getProductImage, formatPrice, getCategoryLabel, Product } from "@/lib/products";
 import { Badge } from "@/components/ui/badge";
 
 interface ProductCardProps {
@@ -22,11 +23,21 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       <Link href={`/products/${product.slug}`} className="group block">
         {/* Image Container */}
         <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-cream">
-          {/* Product Image */}
-          <div 
-            className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-            style={{ background: getProductGradient(product.images[0]) }}
-          />
+          {product.images?.[0]?.startsWith("/") ?? false ? (
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              priority={index < 4}
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+              style={{ background: getProductImage(product.images?.[0] ?? '') }}
+            />
+          )}
 
           {/* Out of Stock Overlay */}
           {!product.inStock && (
@@ -45,14 +56,18 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           </div>
 
-          {/* Category Badge */}
+          {/* Category Circle */}
           <div className="absolute top-3 left-3">
-            <Badge 
-              variant="secondary" 
-              className="bg-cream/90 text-black hover:bg-cream text-xs font-medium tracking-wide"
+            <div
+              className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm flex items-center justify-center"
+              aria-label={getCategoryLabel(product.category) ?? 'Unknown category'}
+              title={getCategoryLabel(product.category) ?? 'Unknown category'}
+              role="img"
             >
-              {getCategoryLabel(product.category)}
-            </Badge>
+              <span className="text-cream text-[10px] font-bold tracking-wide uppercase" aria-hidden="true">
+                {getCategoryLabel(product.category)?.charAt(0) || '?'}
+              </span>
+            </div>
           </div>
 
           {/* Notify Me Badge */}
@@ -74,7 +89,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.name}
           </h3>
           
-          {product.price && (
+          {product.price !== null && (
             <p className="text-gold font-semibold text-lg">
               {formatPrice(product.price)}
             </p>

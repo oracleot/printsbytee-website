@@ -1,10 +1,12 @@
 import productsData from "@/data/products.json";
 
+export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suite';
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: 'laura-set' | 'short-bubu' | '2-piece-set';
+  category: ProductCategory;
   description: string;
   price: number | null;
   sizes: string[];
@@ -66,11 +68,17 @@ export const productGradients: Record<string, string> = {
   'gradient-navy-regal': 'linear-gradient(135deg, #1B4D3E 0%, #0D0D0D 50%, #C9A84C 100%)',
   'gradient-emerald-jungle': 'linear-gradient(135deg, #1B4D3E 0%, #C9A84C 50%, #F5F0E8 100%)',
   'gradient-blush-glow': 'linear-gradient(135deg, #F5F0E8 0%, #C9A84C 50%, #E8E3DB 100%)',
+  'gradient-red-placeholder': 'linear-gradient(135deg, #C75B39 0%, #0D0D0D 50%, #C75B39 100%)',
   'gradient-midnight-jewel': 'linear-gradient(135deg, #0D0D0D 0%, #1B4D3E 50%, #C9A84C 100%)',
 };
 
 export function getProductGradient(imageKey: string): string {
   return productGradients[imageKey] || 'linear-gradient(135deg, #C9A84C 0%, #1B4D3E 100%)';
+}
+
+export function getProductImage(key: string): string {
+  if (key.startsWith("/")) return key;
+  return getProductGradient(key);
 }
 
 export function formatPrice(price: number | null): string {
@@ -79,10 +87,78 @@ export function formatPrice(price: number | null): string {
 }
 
 export function getCategoryLabel(category: Product['category']): string {
-  const labels: Record<Product['category'], string> = {
-    'laura-set': 'Laura Set',
-    'short-bubu': 'Short Bubu',
-    '2-piece-set': '2-Piece Set',
+  const labels: Record<ProductCategory, string> = {
+    'lora-set': 'Lora Set',
+    'aso-oke-kimono': 'Aso Oke Kimono',
+    'fringe-bubu': 'Fringe Bubu',
+    'naya-jump-suite': 'Naya Jump Suite',
   };
   return labels[category];
+}
+
+export interface SizeChartEntry {
+  size: string;
+  uk: string;
+}
+
+export interface SizeChart {
+  category: ProductCategory;
+  description: string;
+  notes: string;
+  measurements: SizeChartEntry[];
+}
+
+export const sizeCharts: Record<ProductCategory, SizeChart> = {
+  'lora-set': {
+    category: 'lora-set',
+    description: 'Two-piece crop top and skirt set — African wax print with minimal stretch',
+    notes: 'Recommend sizing up if between sizes. Top is cropped — check length measurement.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'aso-oke-kimono': {
+    category: 'aso-oke-kimono',
+    description: 'Flowing kimono-style cover-up — Aso Oke is stiff and structured',
+    notes: 'Designed to drape loosely. Check shoulder width and total length for your height.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'fringe-bubu': {
+    category: 'fringe-bubu',
+    description: 'Loose-fitting traditional bubu with fringe detailing',
+    notes: 'Relaxed, oversized fit — size down for a more fitted look. Fringe adds ~2" to hem.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'naya-jump-suite': {
+    category: 'naya-jump-suite',
+    description: 'Tailored jumpsuit with belt included — body-flattering silhouette',
+    notes: 'Material has slight stretch. Check hip and inseam measurements before ordering.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+};
+
+export function getSizeChart(category: ProductCategory): SizeChart | undefined {
+  return sizeCharts[category];
 }

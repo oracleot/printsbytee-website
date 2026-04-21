@@ -1,18 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/shared/SocialIcons";
+import { socialLinks } from "@/components/shared/socialLinks";
 import { PatternDivider } from "@/components/shared/PatternDivider";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact" },
-];
-
-const socialLinks = [
-  { href: "https://instagram.com/printsbytee", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://facebook.com/printsbytee", label: "Facebook", Icon: FacebookIcon },
-  { href: "https://tiktok.com/@printsbytee", label: "TikTok", Icon: TikTokIcon },
 ];
 
 export function Footer() {
@@ -26,13 +20,16 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Image
-                src="/logo.svg"
-                alt="PrintsbyTee"
-                width={48}
-                height={48}
-                className="h-12 w-auto brightness-0 invert"
-              />
+              <div className="h-12 w-12 flex-shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="PrintsbyTee"
+                  width={48}
+                  height={48}
+                  className="h-full w-full brightness-0 invert"
+                  style={{ width: "auto", height: "auto" }}
+                />
+              </div>
               <span className="font-heading text-xl font-bold text-cream">PrintsbyTee</span>
             </Link>
             <p className="text-cream/70 text-sm leading-relaxed max-w-xs">
