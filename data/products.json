@@ -6,17 +6,8 @@
     "category": "lora-set",
     "description": "A stunning turquoise two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/lora-set-turquoise.jpg",
-      "/lora-set-turquoise-back.jpg"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-turquoise.jpg", "/lora-set-turquoise-back.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
@@ -29,17 +20,8 @@
     "category": "lora-set",
     "description": "A stunning green two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/lora-set-green.jpg",
-      "/lora-set-green-back.jpg"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-green.jpg", "/lora-set-green-back.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
@@ -52,17 +34,8 @@
     "category": "lora-set",
     "description": "A striking red and black two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/lora-set-red-black.jpg",
-      "/lora-set-red-black-back.jpg"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-red-black.jpg", "/lora-set-red-black-back.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
@@ -75,19 +48,10 @@
     "category": "lora-set",
     "description": "A sophisticated navy blue two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/lora-set-navy-blue.jpg",
-      "/lora-set-navy-blue-back.jpg"
-    ],
-    "inStock": true,
-    "notifyMeEnabled": false,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-navy-blue.jpg", "/lora-set-navy-blue-back.jpg"],
+    "inStock": false,
+    "notifyMeEnabled": true,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
   },
@@ -98,16 +62,8 @@
     "category": "lora-set",
     "description": "A bold red two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "gradient-red-placeholder"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-red.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
@@ -120,18 +76,10 @@
     "category": "aso-oke-kimono",
     "description": "A traditional Aso Oke Kimono Set \u2014 handwoven luxury for the bold and beautiful.",
     "price": 40,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/aso-oke-kimono-set.jpg"
-    ],
-    "inStock": true,
-    "notifyMeEnabled": false,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-kimono-set.jpg"],
+    "inStock": false,
+    "notifyMeEnabled": true,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
   },
@@ -142,17 +90,8 @@
     "category": "fringe-bubu",
     "description": "Elegant fringe bubu \u2014 a contemporary take on traditional African wear for the bold and beautiful.",
     "price": 35,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/fringe-bubu.jpg",
-      "/fringe-bubu-back.jpg"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/fringe-bubu.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
@@ -160,26 +99,184 @@
   },
   {
     "id": "pbt-008",
-    "slug": "naya-jump-suite",
-    "name": "Naya Jump Suite",
-    "category": "naya-jump-suite",
-    "description": "The Naya Jump Suite \u2014 statement African fashion for the bold and beautiful.",
+    "slug": "naya-jump-suit",
+    "name": "Naya Jump Suit",
+    "category": "naya-jump-suit",
+    "description": "The Naya Jump Suit \u2014 statement African fashion for the bold and beautiful.",
     "price": 35,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "images": [
-      "/naya-jump-suite.jpg",
-      "/naya-jump-suite-with-bag.jpg",
-      "/naya-jump-suite-back.jpg"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/naya-jump-suite.jpg", "/naya-jump-suite-with-bag.jpg", "/naya-jump-suite-back.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
+  },
+  {
+    "id": "pbt-009",
+    "slug": "lumi-set-multi",
+    "name": "Lumi Set \u2014 Multi",
+    "category": "lumi-set",
+    "description": "The Lumi Set in vibrant multi-colour \u2014 a bold statement piece for the bold and beautiful.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lumi-set-multi.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-010",
+    "slug": "lumi-set-blue",
+    "name": "Lumi Set \u2014 Blue",
+    "category": "lumi-set",
+    "description": "The Lumi Set in striking blue \u2014 a bold statement piece for the bold and beautiful.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lumi-set-blue.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-011",
+    "slug": "naya-jump-suit-bw",
+    "name": "Naya Jump Suit \u2014 B/W",
+    "category": "naya-jump-suit",
+    "description": "The Naya Jump Suit in classic black and white \u2014 statement African fashion for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/naya-set-black-white.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-012",
+    "slug": "jasmine-set",
+    "name": "Jasmine Set",
+    "category": "jasmine-set",
+    "description": "The Jasmine Set \u2014 elegant and effortlessly stylish for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/jasmine-set.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-013",
+    "slug": "seline-dress-multi-1",
+    "name": "Seline Dress \u2014 Multi 1",
+    "category": "seline-dress",
+    "description": "The Seline Dress in vibrant multi-colour \u2014 a stunning silhouette for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/seline-dress-multi-1.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-014",
+    "slug": "seline-dress-multi-2",
+    "name": "Seline Dress \u2014 Multi 2",
+    "category": "seline-dress",
+    "description": "The Seline Dress in a second vibrant multi-colour variation \u2014 a stunning silhouette for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/seline-dress-multi-2.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-015",
+    "slug": "aso-oke-kimono-set-blue",
+    "name": "Aso Oke Kimono Set \u2014 Blue",
+    "category": "aso-oke-kimono",
+    "description": "The Aso Oke Kimono Set in rich blue \u2014 handwoven luxury for the bold and beautiful.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-kimono-set-blue.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-016",
+    "slug": "aso-oke-pant-blue",
+    "name": "Aso Oke Pant \u2014 Blue",
+    "category": "aso-oke-pant",
+    "description": "The Aso Oke Pant in rich blue \u2014 handwoven luxury tailoring for the bold and beautiful.",
+    "price": 38,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-pant-blue.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-017",
+    "slug": "aso-oke-pant-maroon",
+    "name": "Aso Oke Pant \u2014 Maroon",
+    "category": "aso-oke-pant",
+    "description": "The Aso Oke Pant in deep maroon \u2014 handwoven luxury tailoring for the bold and beautiful.",
+    "price": 38,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-pant-maroon.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-018",
+    "slug": "aso-oke-pant-red",
+    "name": "Aso Oke Pant \u2014 Red",
+    "category": "aso-oke-pant",
+    "description": "The Aso Oke Pant in bold red \u2014 handwoven luxury tailoring for the bold and beautiful.",
+    "price": 38,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-pant-red.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-019",
+    "slug": "aso-oke-pant-green",
+    "name": "Aso Oke Pant \u2014 Green",
+    "category": "aso-oke-pant",
+    "description": "The Aso Oke Pant in rich green \u2014 handwoven luxury tailoring for the bold and beautiful.",
+    "price": 38,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/aso-oke-pant-green.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-020",
+    "slug": "lora-set-purple",
+    "name": "Lora Set \u2014 Purple",
+    "category": "lora-set",
+    "description": "A bold purple two-piece set crafted for the bold and beautiful. Perfect for special occasions and celebrations.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-purple.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-05-29T00:00:00Z"
   }
 ]

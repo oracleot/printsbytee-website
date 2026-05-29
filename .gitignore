@@ -42,3 +42,7 @@ next-env.d.ts
 
 # Working docs (specs, audits, AI logs, reviews)
 /docs/
+
+# testing
+.playwright-mcp/
+.omo/

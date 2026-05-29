@@ -1,6 +1,6 @@
 import productsData from "@/data/products.json";
 
-export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suite';
+export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suit' | 'lumi-set' | 'jasmine-set' | 'seline-dress' | 'aso-oke-pant';
 
 export interface Product {
   id: string;
@@ -89,9 +89,13 @@ export function formatPrice(price: number | null): string {
 export function getCategoryLabel(category: Product['category']): string {
   const labels: Record<ProductCategory, string> = {
     'lora-set': 'Lora Set',
-    'aso-oke-kimono': 'Aso Oke Kimono',
+    'aso-oke-kimono': 'Aso Oke Kimono Set',
     'fringe-bubu': 'Fringe Bubu',
-    'naya-jump-suite': 'Naya Jump Suite',
+    'naya-jump-suit': 'Naya Jump Suit',
+    'lumi-set': 'Lumi Set',
+    'jasmine-set': 'Jasmine Set',
+    'seline-dress': 'Seline Dress',
+    'aso-oke-pant': 'Aso Oke Pant',
   };
   return labels[category];
 }
@@ -145,10 +149,58 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
       { size: 'XXL', uk: '18-20' },
     ],
   },
-  'naya-jump-suite': {
-    category: 'naya-jump-suite',
+  'naya-jump-suit': {
+    category: 'naya-jump-suit',
     description: 'Tailored jumpsuit with belt included — body-flattering silhouette',
     notes: 'Material has slight stretch. Check hip and inseam measurements before ordering.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'lumi-set': {
+    category: 'lumi-set',
+    description: 'Two-piece Lumi Set — vibrant African print with a modern silhouette',
+    notes: 'Recommend sizing up if between sizes.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'jasmine-set': {
+    category: 'jasmine-set',
+    description: 'The Jasmine Set — elegant two-piece with flowing fabric and minimal stretch',
+    notes: 'True to size. Check bust and waist measurements before ordering.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'seline-dress': {
+    category: 'seline-dress',
+    description: 'The Seline Dress — a flowing dress with a flattering silhouette',
+    notes: 'True to size. Check bust and length measurements before ordering.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'aso-oke-pant': {
+    category: 'aso-oke-pant',
+    description: 'Aso Oke Pant — structured wide-leg pant in handwoven Aso Oke fabric',
+    notes: 'Designed for a relaxed, structured fit. Check hip and inseam before ordering.',
     measurements: [
       { size: 'S',   uk: '8-10' },
       { size: 'M',   uk: '10-12' },
