@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "2",
     name: "Ngozi K.",
-    location: "Atlanta, USA",
+    location: "Berlin, Germany",
     rating: 5,
     quote:
       "Finally, fashion that celebrates African heritage with such elegance. My Laura set always gets compliments everywhere I go. Absolutely love PrintsbyTee!",
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "3",
     name: "Amara J.",
-    location: "Toronto, Canada",
+    location: "Edinburgh, Scotland",
     rating: 5,
     quote:
       "The attention to detail is remarkable. From the packaging to the stitching, everything speaks quality. This is how African fashion should be presented.",
@@ -40,7 +40,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "4",
     name: "Fatima A.",
-    location: "Dubai, UAE",
+    location: "Stirling, Scotland",
     rating: 5,
     quote:
       "I ordered for my daughter's wedding and the 2-piece set was breathtaking. The rose gold accents were exactly as shown. Will definitely be ordering again!",
