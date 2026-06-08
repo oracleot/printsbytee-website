@@ -62,12 +62,14 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                   {/* Badge */}
                   {product.inStock && (
                     <span className="absolute top-3 left-3 bg-emerald text-cream text-xs px-2 py-1 font-medium tracking-wide">
-                      In Stock
+                      {(product as Product & { stockLabel?: string }).stockLabel === "low-stock"
+                        ? "Low Stock"
+                        : "In Stock"}
                     </span>
                   )}
                   {!product.inStock && (
                     <span className="absolute top-3 left-3 bg-gold text-black text-xs px-2 py-1 font-medium tracking-wide">
-                      Pre-order
+                      {product.notifyMeEnabled ? "Restocking Soon" : "Sold Out"}
                     </span>
                   )}
                   

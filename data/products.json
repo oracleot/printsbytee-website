@@ -8,7 +8,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-turquoise.jpg", "/lora-set-turquoise-back.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
@@ -36,7 +36,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-red-black.jpg", "/lora-set-red-black-back.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
@@ -51,7 +51,7 @@
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-navy-blue.jpg", "/lora-set-navy-blue-back.jpg"],
     "inStock": false,
-    "notifyMeEnabled": true,
+    "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
   },
@@ -64,7 +64,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-red.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
@@ -94,6 +94,7 @@
     "images": ["/fringe-bubu.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
+    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
   },
@@ -106,7 +107,7 @@
     "price": 35,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/naya-jump-suite.jpg", "/naya-jump-suite-with-bag.jpg", "/naya-jump-suite-back.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
@@ -148,7 +149,7 @@
     "price": 35,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/naya-set-black-white.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
@@ -162,8 +163,8 @@
     "price": 35,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/jasmine-set.jpg"],
-    "inStock": true,
-    "notifyMeEnabled": false,
+    "inStock": false,
+    "notifyMeEnabled": true,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -178,6 +179,7 @@
     "images": ["/seline-dress-multi-1.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
+    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -192,6 +194,7 @@
     "images": ["/seline-dress-multi-2.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
+    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -204,8 +207,8 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-kimono-set-blue.jpg"],
-    "inStock": true,
-    "notifyMeEnabled": false,
+    "inStock": false,
+    "notifyMeEnabled": true,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -218,7 +221,7 @@
     "price": 38,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-pant-blue.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
@@ -232,8 +235,8 @@
     "price": 38,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-pant-maroon.jpg"],
-    "inStock": true,
-    "notifyMeEnabled": false,
+    "inStock": false,
+    "notifyMeEnabled": true,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -246,7 +249,7 @@
     "price": 38,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-pant-red.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
@@ -260,7 +263,7 @@
     "price": 38,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-pant-green.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
@@ -274,7 +277,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-purple.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"

@@ -16,6 +16,8 @@ interface ProductInfoProps {
 export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const stockLabel = (product as Product & { stockLabel?: string }).stockLabel;
+  const isLowStock = stockLabel === "low-stock";
 
   return (
     <motion.div
@@ -49,12 +51,12 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
         {product.inStock ? (
           <span className="inline-flex items-center gap-2 text-sm text-emerald font-medium">
             <span className="w-2 h-2 bg-emerald rounded-full" />
-            In Stock
+            {isLowStock ? "Low Stock" : "In Stock"}
           </span>
         ) : (
           <span className="inline-flex items-center gap-2 text-sm text-gold font-medium">
             <span className="w-2 h-2 bg-gold rounded-full" />
-            Currently Out of Stock
+            {product.notifyMeEnabled ? "Sold Out - Restocking Soon" : "Sold Out"}
           </span>
         )}
       </div>

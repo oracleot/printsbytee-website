@@ -13,6 +13,10 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
+  const stockLabel = (product as Product & { stockLabel?: string }).stockLabel;
+  const isLowStock = stockLabel === "low-stock";
+  const outOfStockText = product.notifyMeEnabled ? "Restocking Soon" : "Sold Out";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,8 +47,19 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {!product.inStock && (
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <span className="bg-cream text-black text-sm font-medium px-4 py-2">
-                Out of Stock
+                {outOfStockText}
               </span>
+            </div>
+          )}
+
+          {isLowStock && (
+            <div className="absolute top-3 right-3">
+              <Badge
+                variant="secondary"
+                className="bg-gold text-black text-xs font-medium tracking-wide"
+              >
+                Low Stock
+              </Badge>
             </div>
           )}
 

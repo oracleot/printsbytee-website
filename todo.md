@@ -36,3 +36,17 @@ I have some more products and some changes
   - Lora Set (Purple) --> lora-set-purple.jpg
 
 Any questions, please ask
+
+---
+
+Update the following products as follows:
+
+- Kimono set - sold out / restocking soon
+- Jasmine set - Sold out / restocking soon
+- All Aso-oke pants - sold out (maroon restocking soon)
+- All Lora set - sold out  (except green)
+- Naya jumpsuit both colors - sold out 
+- Seline dress - low stock
+- Fringe Bubu - low stock
+
+Ask clarifying questions if any

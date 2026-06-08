@@ -17,6 +17,8 @@ interface BentoItem {
   category: Product["category"];
   price: number | null;
   inStock: boolean;
+  notifyMeEnabled: boolean;
+  stockLabel?: string;
   imageKey: string;
   isLargeCard: boolean;
 }
@@ -77,11 +79,11 @@ function BentoCard({ item, index }: { item: BentoItem; index: number }) {
           {/* Badge */}
           {item.inStock ? (
             <span className={`absolute ${badgeOffset} bg-emerald text-cream text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded`}>
-              In Stock
+              {item.stockLabel === "low-stock" ? "Low Stock" : "In Stock"}
             </span>
           ) : (
             <span className={`absolute ${badgeOffset} bg-gold text-black text-xs px-3 py-1.5 font-medium tracking-wide z-10 rounded`}>
-              Pre-order
+              {item.notifyMeEnabled ? "Restocking Soon" : "Sold Out"}
             </span>
           )}
 
@@ -127,6 +129,8 @@ export function BentoGrid({ products }: BentoGridProps) {
       category: product.category,
       price: product.price,
       inStock: product.inStock,
+      notifyMeEnabled: product.notifyMeEnabled,
+      stockLabel: (product as Product & { stockLabel?: string }).stockLabel,
       imageKey: product.images?.[0] ?? 'gradient-emerald-gold',
       isLargeCard,
     };
