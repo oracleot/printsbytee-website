@@ -1,6 +1,6 @@
 import productsData from "@/data/products.json";
 
-export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suit' | 'lumi-set' | 'jasmine-set' | 'seline-dress' | 'aso-oke-pant';
+export type ProductCategory = 'lora-set' | 'aso-oke-kimono' | 'fringe-bubu' | 'naya-jump-suit' | 'lumi-set' | 'jasmine-set' | 'seline-dress' | 'aso-oke-pant' | 'kora-bubu' | 'mina-set';
 
 export interface Product {
   id: string;
@@ -96,6 +96,8 @@ export function getCategoryLabel(category: Product['category']): string {
     'jasmine-set': 'Jasmine Set',
     'seline-dress': 'Seline Dress',
     'aso-oke-pant': 'Aso Oke Pant',
+    'kora-bubu': 'Kora Bubu',
+    'mina-set': 'Mina Set',
   };
   return labels[category];
 }
@@ -201,6 +203,30 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     category: 'aso-oke-pant',
     description: 'Aso Oke Pant — structured wide-leg pant in handwoven Aso Oke fabric',
     notes: 'Designed for a relaxed, structured fit. Check hip and inseam before ordering.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'kora-bubu': {
+    category: 'kora-bubu',
+    description: 'The Kora Bubu — a stunning loose-fitting bubu with intricate kora-inspired detailing',
+    notes: 'Relaxed, flowy fit — true to size or size down for a more tailored look.',
+    measurements: [
+      { size: 'S',   uk: '8-10' },
+      { size: 'M',   uk: '10-12' },
+      { size: 'L',   uk: '12-14' },
+      { size: 'XL',  uk: '14-16' },
+      { size: 'XXL', uk: '18-20' },
+    ],
+  },
+  'mina-set': {
+    category: 'mina-set',
+    description: 'The Mina Set — a versatile two-piece set that can be styled your way',
+    notes: 'Available as full set or pant only. Recommend sizing up if between sizes.',
     measurements: [
       { size: 'S',   uk: '8-10' },
       { size: 'M',   uk: '10-12' },

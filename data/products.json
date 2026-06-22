@@ -281,5 +281,33 @@
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
+  },
+  {
+    "id": "pbt-021",
+    "slug": "kora-bubu",
+    "name": "Kora Bubu",
+    "category": "kora-bubu",
+    "description": "The Kora Bubu — a stunning loose-fitting bubu featuring intricate kora-inspired embroidery and detailing. A contemporary take on traditional African elegance, designed for the bold and beautiful woman who wants to make a statement.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/kora-bubu.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-06-22T00:00:00Z"
+  },
+  {
+    "id": "pbt-022",
+    "slug": "mina-set",
+    "name": "Mina Set",
+    "category": "mina-set",
+    "description": "The Mina Set — a versatile two-piece set crafted for the bold and beautiful. Available as a full set (top + pant) at £35, or as pant only at £28. Mix and match to create your perfect look.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/mina_set.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-06-22T00:00:00Z"
   }
 ]
