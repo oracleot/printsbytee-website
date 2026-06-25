@@ -163,8 +163,8 @@
     "price": 35,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/jasmine-set.jpg"],
-    "inStock": false,
-    "notifyMeEnabled": true,
+    "inStock": true,
+    "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -305,7 +305,7 @@
     "price": 35,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/mina_set.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-06-22T00:00:00Z"
