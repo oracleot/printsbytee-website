@@ -22,7 +22,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-green.jpg", "/lora-set-green-back.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
@@ -177,9 +177,8 @@
     "price": 30,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/seline-dress-multi-1.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
-    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -192,9 +191,8 @@
     "price": 30,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/seline-dress-multi-2.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
-    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
