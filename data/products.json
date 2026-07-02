@@ -72,14 +72,14 @@
   {
     "id": "pbt-006",
     "slug": "aso-oke-kimono-set",
-    "name": "Aso Oke Kimono Set",
+    "name": "Aso Oke Kimono Set — Orange",
     "category": "aso-oke-kimono",
-    "description": "A traditional Aso Oke Kimono Set \u2014 handwoven luxury for the bold and beautiful.",
+    "description": "The Aso Oke Kimono Set in warm orange — handwoven luxury for the bold and beautiful.",
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-kimono-set.jpg"],
     "inStock": false,
-    "notifyMeEnabled": true,
+    "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
   },
@@ -123,6 +123,7 @@
     "images": ["/lumi-set-multi.jpg"],
     "inStock": true,
     "notifyMeEnabled": false,
+    "stockLabel": "low-stock",
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -135,7 +136,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lumi-set-blue.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
@@ -205,8 +206,8 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-kimono-set-blue.jpg"],
-    "inStock": false,
-    "notifyMeEnabled": true,
+    "inStock": true,
+    "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -233,8 +234,8 @@
     "price": 38,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/aso-oke-pant-maroon.jpg"],
-    "inStock": false,
-    "notifyMeEnabled": true,
+    "inStock": true,
+    "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
   },
@@ -307,5 +308,33 @@
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-06-22T00:00:00Z"
+  },
+  {
+    "id": "pbt-023",
+    "slug": "fringe-dress-red",
+    "name": "Fringe Dress — Red",
+    "category": "fringe-bubu",
+    "description": "The Fringe Dress in vibrant red — a statement silhouette finished with playful fringe for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/fringe-bubu-red.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-07-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-024",
+    "slug": "fringe-dress-blue",
+    "name": "Fringe Dress — Blue",
+    "category": "fringe-bubu",
+    "description": "The Fringe Dress in striking blue — a statement silhouette finished with playful fringe for the bold and beautiful.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/fringe-bubu-blue.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": true,
+    "createdAt": "2026-07-02T00:00:00Z"
   }
 ]

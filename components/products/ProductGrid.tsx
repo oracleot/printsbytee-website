@@ -23,12 +23,17 @@ export function ProductGrid({ products }: ProductGridProps) {
     { value: "seline-dress", label: "Seline Dress" },
     { value: "aso-oke-kimono", label: "Aso Oke Kimono Set" },
     { value: "aso-oke-pant", label: "Aso Oke Pant" },
-    { value: "fringe-bubu", label: "Fringe Bubu" },
+    { value: "fringe-bubu", label: "Fringe Dress" },
   ];
 
-  const filteredProducts = activeFilter === "all" 
-    ? products 
-    : products.filter(p => p.category === activeFilter);
+  const filteredProducts = activeFilter === "all"
+    ? products
+    : products.filter((product) => product.category === activeFilter);
+
+  const sortedProducts = [...filteredProducts].sort((left, right) => {
+    if (left.inStock === right.inStock) return 0;
+    return left.inStock ? -1 : 1;
+  });
 
   return (
     <div className="space-y-8">
@@ -53,13 +58,13 @@ export function ProductGrid({ products }: ProductGridProps) {
 
       {/* Product Count */}
       <p aria-live="polite" className="text-center text-sm text-black/60">
-        Showing {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
+        Showing {sortedProducts.length} {sortedProducts.length === 1 ? "product" : "products"}
       </p>
 
       {/* Products Grid */}
-      {filteredProducts.length > 0 ? (
+      {sortedProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product, index) => (
+          {sortedProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
         </div>
