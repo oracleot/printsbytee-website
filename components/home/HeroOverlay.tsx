@@ -51,10 +51,7 @@ export function HeroOverlay({ reducedMotion }: HeroOverlayProps) {
         for the modern woman.
       </motion.p>
 
-      <motion.div
-        {...f(0.7)}
-        className="flex flex-col sm:flex-row items-center justify-center gap-4"
-      >
+      <motion.div {...f(0.7)}>
         <Link
           href="/products"
           className="inline-flex items-center gap-3 bg-gold text-black px-10 py-5 font-bold text-sm tracking-[0.15em] uppercase hover:bg-cream transition-all duration-300 shadow-xl shadow-gold/20 hover:shadow-gold/40"
@@ -62,12 +59,6 @@ export function HeroOverlay({ reducedMotion }: HeroOverlayProps) {
           Shop Now
           <ArrowRight className="w-5 h-5" />
         </Link>
-        <a
-          href="mailto:hello@printsbytee.co.uk"
-          className="inline-flex items-center gap-2 text-cream hover:text-gold text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 border-b border-cream/50 hover:border-gold pb-0.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]"
-        >
-          Custom Orders
-        </a>
       </motion.div>
     </div>
   );

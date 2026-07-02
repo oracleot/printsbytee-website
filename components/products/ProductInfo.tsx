@@ -27,12 +27,27 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
       className="space-y-6"
     >
       {/* Category Badge */}
-      <Badge
-        variant="secondary"
-        className="bg-cream text-emerald hover:bg-cream text-sm font-medium tracking-wide"
-      >
-        {getCategoryLabel(product.category)}
-      </Badge>
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge
+          variant="secondary"
+          className="bg-cream text-emerald hover:bg-cream text-sm font-medium tracking-wide"
+        >
+          {getCategoryLabel(product.category)}
+        </Badge>
+        {product.isNew && (
+          <motion.div
+            animate={{ scale: [1, 1.06, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Badge
+              variant="secondary"
+              className="border border-gold/40 bg-gradient-to-r from-[#0d0d0d] via-[#1b4d3e] to-[#5c2f24] text-white hover:opacity-95 text-xs font-black uppercase tracking-[0.25em] [text-shadow:0_1px_2px_rgba(0,0,0,0.7)] shadow-[0_0_24px_rgba(201,168,76,0.35)]"
+            >
+              Just In
+            </Badge>
+          </motion.div>
+        )}
+      </div>
 
       {/* Product Name */}
       <h1 className="font-heading text-3xl sm:text-4xl font-bold text-black">
