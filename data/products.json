@@ -321,6 +321,7 @@
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
+    "isNew": true,
     "createdAt": "2026-07-02T00:00:00Z"
   },
   {
@@ -335,6 +336,7 @@
     "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
+    "isNew": true,
     "createdAt": "2026-07-02T00:00:00Z"
   }
 ]

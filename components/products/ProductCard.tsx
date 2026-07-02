@@ -16,6 +16,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const stockLabel = (product as Product & { stockLabel?: string }).stockLabel;
   const isLowStock = stockLabel === "low-stock";
   const outOfStockText = product.notifyMeEnabled ? "Restocking Soon" : "Sold Out";
+  const statusBadges = [
+    product.isNew ? "new" : null,
+    isLowStock ? "low-stock" : null,
+    !product.inStock && product.notifyMeEnabled ? "notify-me" : null,
+  ].filter(Boolean) as Array<"new" | "low-stock" | "notify-me">;
 
   return (
     <motion.div
@@ -52,14 +57,25 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           )}
 
-          {isLowStock && (
-            <div className="absolute top-3 right-3">
-              <Badge
-                variant="secondary"
-                className="bg-gold text-black text-xs font-medium tracking-wide"
-              >
-                Low Stock
-              </Badge>
+          {statusBadges.length > 0 && (
+            <div className="absolute top-3 right-3 flex flex-col items-end gap-2">
+              {statusBadges.map((badge) => (
+                <Badge
+                  key={badge}
+                  variant="secondary"
+                  className={
+                    badge === "new"
+                      ? "border border-gold/40 bg-gradient-to-r from-[#0d0d0d] via-[#1b4d3e] to-[#5c2f24] text-white text-[10px] font-black uppercase tracking-[0.25em] [text-shadow:0_1px_2px_rgba(0,0,0,0.7)] shadow-[0_0_24px_rgba(201,168,76,0.35)] animate-pulse"
+                      : "bg-gold text-black text-xs font-medium tracking-wide"
+                  }
+                >
+                  {badge === "new"
+                    ? "Just In"
+                    : badge === "low-stock"
+                      ? "Low Stock"
+                      : "Notify Me"}
+                </Badge>
+              ))}
             </div>
           )}
 
@@ -85,17 +101,6 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           </div>
 
-          {/* Notify Me Badge */}
-          {!product.inStock && product.notifyMeEnabled && (
-            <div className="absolute top-3 right-3">
-              <Badge 
-                variant="secondary" 
-                className="bg-gold/90 text-black hover:bg-gold text-xs font-medium tracking-wide"
-              >
-                Notify Me
-              </Badge>
-            </div>
-          )}
         </div>
 
         {/* Product Info */}
