@@ -9,13 +9,14 @@ interface ProductGridProps {
   products: Product[];
 }
 
-type CategoryFilter = "all" | "lora-set" | "aso-oke-kimono" | "fringe-bubu" | "naya-jump-suit" | "lumi-set" | "jasmine-set" | "seline-dress" | "aso-oke-pant";
+type CategoryFilter = "all" | "lora-set" | "aso-oke-kimono" | "fringe-bubu" | "naya-jump-suit" | "lumi-set" | "jasmine-set" | "seline-dress" | "aso-oke-pant" | "ewa-set";
 
 export function ProductGrid({ products }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
 
   const filters: { value: CategoryFilter; label: string }[] = [
     { value: "all", label: "All" },
+    { value: "ewa-set", label: "Ewa Set" },
     { value: "lora-set", label: "Lora Set" },
     { value: "lumi-set", label: "Lumi Set" },
     { value: "naya-jump-suit", label: "Naya Jump Suit" },

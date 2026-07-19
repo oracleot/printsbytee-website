@@ -8,7 +8,8 @@ export type ProductCategory =
   | "seline-dress"
   | "aso-oke-pant"
   | "kora-bubu"
-  | "mina-set";
+  | "mina-set"
+  | "ewa-set";
 
 export interface Product {
   id: string;

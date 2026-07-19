@@ -35,6 +35,7 @@ const categoryLabels: Record<ProductCategory, string> = {
   "aso-oke-pant": "Aso Oke Pant",
   "kora-bubu": "Kora Bubu",
   "mina-set": "Mina Set",
+  "ewa-set": "Ewa Set",
 };
 
 export function getProductGradient(imageKey: string): string {
