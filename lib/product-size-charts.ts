@@ -61,6 +61,12 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     notes: "Available as full set or pant only. Recommend sizing up if between sizes.",
     measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
   },
+  "ewa-set": {
+    category: "ewa-set",
+    description: "The Ewa Set — a relaxed two-piece with a belted top and wide-leg trousers",
+    notes: "Designed for an easy, flowing fit. Choose your usual size; size up if you prefer extra room through the trousers.",
+    measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
+  },
 };
 
 export function getSizeChart(category: ProductCategory): SizeChart | undefined {
