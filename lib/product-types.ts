@@ -9,7 +9,9 @@ export type ProductCategory =
   | "aso-oke-pant"
   | "kora-bubu"
   | "mina-set"
-  | "ewa-set";
+  | "ewa-set"
+  | "hawa-bubu"
+  | "arike-set";
 
 export interface Product {
   id: string;
