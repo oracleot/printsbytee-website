@@ -67,6 +67,18 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     notes: "Designed for an easy, flowing fit. Choose your usual size; size up if you prefer extra room through the trousers.",
     measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
   },
+  "hawa-bubu": {
+    category: "hawa-bubu",
+    description: "The Hawa Bubu — a flowing, loose-fitting traditional silhouette",
+    notes: "Designed for an easy, relaxed fit. Choose your usual size or size down for less volume.",
+    measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
+  },
+  "arike-set": {
+    category: "arike-set",
+    description: "The Arike Set — a coordinated two-piece in vibrant African print",
+    notes: "Choose your usual size; size up if you prefer a more relaxed fit.",
+    measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
+  },
 };
 
 export function getSizeChart(category: ProductCategory): SizeChart | undefined {
