@@ -378,7 +378,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/ewa-set-greige.jpg"],
-    "inStock": true,
+    "inStock": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
