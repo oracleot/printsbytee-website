@@ -11,7 +11,8 @@ export type ProductCategory =
   | "mina-set"
   | "ewa-set"
   | "hawa-bubu"
-  | "arike-set";
+  | "arike-set"
+  | "two-in-one-dungaree";
 
 export interface Product {
   id: string;

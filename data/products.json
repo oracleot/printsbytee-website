@@ -473,5 +473,50 @@
     "featured": false,
     "isNew": true,
     "createdAt": "2026-07-19T00:00:00Z"
+  },
+  {
+    "id": "pbt-034",
+    "slug": "two-in-one-dungaree",
+    "name": "2 in 1 Dungaree",
+    "category": "two-in-one-dungaree",
+    "description": "A versatile striped two-in-one dungaree with wide-leg trousers, styled beautifully with or without the bib.",
+    "price": 50,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/two-in-one-dungaree-half.jpg", "/two-in-one-dungaree-full.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-08-21T00:00:00Z"
+  },
+  {
+    "id": "pbt-035",
+    "slug": "lora-set-wine",
+    "name": "Lora Set — Wine",
+    "category": "lora-set",
+    "description": "The Lora Set in a rich wine print — a polished two-piece with a belted top and flowing wide-leg trousers.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-wine.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-08-21T00:00:00Z"
+  },
+  {
+    "id": "pbt-036",
+    "slug": "lora-set-blue",
+    "name": "Lora Set — Blue",
+    "category": "lora-set",
+    "description": "The Lora Set in a vivid blue print — a polished two-piece with a belted top and flowing wide-leg trousers.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-blue.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-08-21T00:00:00Z"
   }
 ]
