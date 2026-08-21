@@ -79,6 +79,12 @@ export const sizeCharts: Record<ProductCategory, SizeChart> = {
     notes: "Choose your usual size; size up if you prefer a more relaxed fit.",
     measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
   },
+  "two-in-one-dungaree": {
+    category: "two-in-one-dungaree",
+    description: "Versatile two-in-one dungaree with wide-leg trousers",
+    notes: "Wear with or without the dungaree bib. Choose your usual size; size up if you prefer extra room through the trousers.",
+    measurements: [{ size: "S", uk: "8-10" }, { size: "M", uk: "10-12" }, { size: "L", uk: "12-14" }, { size: "XL", uk: "14-16" }, { size: "XXL", uk: "18-20" }],
+  },
 };
 
 export function getSizeChart(category: ProductCategory): SizeChart | undefined {

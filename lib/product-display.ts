@@ -38,6 +38,7 @@ const categoryLabels: Record<ProductCategory, string> = {
   "ewa-set": "Ewa Set",
   "hawa-bubu": "Hawa Bubu",
   "arike-set": "Arike Set",
+  "two-in-one-dungaree": "2 in 1 Dungaree",
 };
 
 export function getProductGradient(imageKey: string): string {

@@ -9,7 +9,7 @@ interface ProductGridProps {
   products: Product[];
 }
 
-type CategoryFilter = "all" | "lora-set" | "aso-oke-kimono" | "fringe-bubu" | "naya-jump-suit" | "lumi-set" | "jasmine-set" | "seline-dress" | "aso-oke-pant" | "ewa-set";
+type CategoryFilter = "all" | "lora-set" | "aso-oke-kimono" | "fringe-bubu" | "naya-jump-suit" | "lumi-set" | "jasmine-set" | "seline-dress" | "aso-oke-pant" | "ewa-set" | "two-in-one-dungaree";
 
 export function ProductGrid({ products }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
@@ -18,6 +18,7 @@ export function ProductGrid({ products }: ProductGridProps) {
     { value: "all", label: "All" },
     { value: "ewa-set", label: "Ewa Set" },
     { value: "lora-set", label: "Lora Set" },
+    { value: "two-in-one-dungaree", label: "2 in 1 Dungaree" },
     { value: "lumi-set", label: "Lumi Set" },
     { value: "naya-jump-suit", label: "Naya Jump Suit" },
     { value: "jasmine-set", label: "Jasmine Set" },
