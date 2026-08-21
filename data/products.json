@@ -64,7 +64,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-red.jpg"],
-    "inStock": false,
+    "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-04-10T00:00:00Z"
