@@ -276,7 +276,7 @@
     "price": 40,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/lora-set-purple.jpg"],
-    "inStock": false,
+    "inStock": true,
     "notifyMeEnabled": false,
     "featured": true,
     "createdAt": "2026-05-29T00:00:00Z"
