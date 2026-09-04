@@ -518,5 +518,35 @@
     "featured": false,
     "isNew": true,
     "createdAt": "2026-08-21T00:00:00Z"
+  },
+  {
+    "id": "pbt-037",
+    "slug": "lora-set-orange",
+    "name": "Lora Set — Orange",
+    "category": "lora-set",
+    "description": "The Lora Set in a bold orange print — a polished two-piece with a belted top and flowing wide-leg trousers.",
+    "price": 40,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/lora-set-orange.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-09-04T00:00:00Z"
+  },
+  {
+    "id": "pbt-038",
+    "slug": "fringe-set",
+    "name": "Fringe Set",
+    "category": "fringe-bubu",
+    "description": "The Fringe Set — a statement two-piece finished with playful fringe and a bold patterned print.",
+    "price": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "images": ["/fringe-set.jpg"],
+    "inStock": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-09-04T00:00:00Z"
   }
 ]
