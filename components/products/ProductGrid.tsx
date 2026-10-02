@@ -3,6 +3,7 @@
 import { CategorySilhouettes } from "./CategorySilhouettes";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { SoldOutCollectionCard } from "./SoldOutCollectionCard";
 import { ProductCard } from "./ProductCard";
 import { Product } from "@/lib/products";
 
@@ -40,6 +41,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           {sortedProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
+          <SoldOutCollectionCard />
         </div>
       ) : (
         <motion.div
