@@ -1,10 +1,10 @@
 "use client";
 
-import { PrototypeCategories } from "./PrototypeCategories";
+import { CategorySilhouettes } from "./CategorySilhouettes";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProductCard } from "./ProductCard";
-import { Product, getCategoryLabel } from "@/lib/products";
+import { Product } from "@/lib/products";
 
 interface ProductGridProps {
   products: Product[];
@@ -12,16 +12,8 @@ interface ProductGridProps {
 
 type CategoryFilter = "all" | Product["category"];
 
-export function ProductGrid({ products, prototypeVariant }: ProductGridProps & { prototypeVariant?: string }) {
+export function ProductGrid({ products }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
-
-  const filters: { value: CategoryFilter; label: string }[] = [
-    { value: "all", label: "All" },
-    ...Array.from(new Set(products.map((product) => product.category))).map((category) => ({
-      value: category,
-      label: getCategoryLabel(category),
-    })),
-  ];
 
   const filteredProducts = activeFilter === "all"
     ? products
@@ -34,29 +26,9 @@ export function ProductGrid({ products, prototypeVariant }: ProductGridProps & {
   });
 
   return (
-    <div className={prototypeVariant === "C" ? "flex flex-col lg:flex-row gap-10" : "space-y-8"}>
-      {prototypeVariant ? <PrototypeCategories products={products} active={activeFilter} onChange={setActiveFilter} variant={prototypeVariant} /> : <>
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {filters.map((filter) => (
-          <button
-            key={filter.value}
-            type="button"
-            onClick={() => setActiveFilter(filter.value)}
-            aria-pressed={activeFilter === filter.value}
-            className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
-              activeFilter === filter.value
-                ? "bg-black text-cream"
-                : "bg-cream text-black hover:bg-gold hover:text-black"
-            }`}
-          >
-            {filter.label}
-          </button>
-        ))}
-      </div>
-
-      </>}
-      <div className="flex-1 min-w-0 space-y-8">
+    <div className="space-y-8">
+      <CategorySilhouettes products={products} active={activeFilter} onChange={setActiveFilter} />
+      <div className="space-y-8">
       {/* Product Count */}
       <p aria-live="polite" className="text-center text-sm text-black/60">
         Showing {sortedProducts.length} {sortedProducts.length === 1 ? "product" : "products"}

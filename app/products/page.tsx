@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PrototypeSwitcher } from "@/components/products/PrototypeSwitcher";
 import { Metadata } from "next";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { PatternDivider } from "@/components/shared/PatternDivider";
@@ -11,9 +10,7 @@ export const metadata: Metadata = {
   description: "Explore our collection of premium African print fashion, including Ewa Sets, Lora Sets, Aso Oke Kimonos, Fringe Bubus, and Naya Jump Suits for bold and beautiful women.",
 };
 
-export default async function ProductsPage({ searchParams }: { searchParams: Promise<{ variant?: string }> }) {
-  const params = await searchParams;
-  const variant = process.env.NODE_ENV !== "production" ? (["A", "B", "C"].includes(params.variant ?? "") ? params.variant : "A") : undefined;
+export default function ProductsPage() {
   return (
     <>
       {/* Hero Header */}
@@ -35,9 +32,8 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
       {/* Products Grid */}
       <section className="py-12 bg-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end mb-8"><Link href={variant ? "/prototype/sold-out" : "/sold-out"} className="text-sm underline underline-offset-4">Explore sold-out favourites ↗</Link></div>
-          <ProductGrid products={products.filter(p => p.inStock || p.availabilityPending)} prototypeVariant={variant} />
-          {variant && <PrototypeSwitcher names={["Underline menu", "Visual silhouettes", "Category sidebar"]} />}
+          <div className="flex justify-end mb-8"><Link href="/sold-out" className="text-sm underline underline-offset-4">Explore sold-out favourites ↗</Link></div>
+          <ProductGrid products={products.filter(p => p.inStock || p.availabilityPending)} />
         </div>
       </section>
 
