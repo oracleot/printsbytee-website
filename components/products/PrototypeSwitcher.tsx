@@ -28,9 +28,9 @@ export function PrototypeSwitcher({ names }: { names: string[] }) {
     next.set("variant", ["A", "B", "C"][(current + direction + 3) % 3]);
     router.replace(`${pathname}?${next}`, { scroll: false });
   }
-  return <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 rounded-full bg-black text-white shadow-xl px-4 py-3 text-xs max-w-[95vw]">
+  return <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 rounded-full bg-black text-white shadow-xl px-4 py-3 text-xs w-max max-w-[95vw]">
     <button aria-label="Previous design" onClick={() => cycle(-1)} className="p-2">←</button>
-    <span>PROTOTYPE · {["A", "B", "C"][current]} — {names[current]}</span>
+    <span className="truncate">PROTOTYPE · {["A", "B", "C"][current]} — {names[current]}</span>
     <button aria-label="Next design" onClick={() => cycle(1)} className="p-2">→</button>
   </div>;
 }

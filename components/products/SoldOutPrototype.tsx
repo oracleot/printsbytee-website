@@ -10,7 +10,7 @@ export function SoldOutPrototype({ products, variant }: { products: Product[]; v
       <Link href="/products" className="text-sm text-emerald underline underline-offset-4">← Shop available pieces</Link>
       {variant === "B" ? <>
         <header className="grid md:grid-cols-2 gap-8 my-12 items-end border-b border-black/20 pb-10">
-          <div><p className="text-xs tracking-[.25em] uppercase text-emerald mb-5">The PrintsbyTee lookbook</p><h1 className="font-heading text-6xl sm:text-8xl">Loved.<br />Worn.<br /><em>Remembered.</em></h1></div>
+          <div><p className="text-xs tracking-[.25em] uppercase text-emerald mb-5">The PrintsbyTee lookbook</p><h1 className="font-heading text-4xl sm:text-6xl lg:text-8xl">Loved.<br />Worn.<br /><em>Remembered.</em></h1></div>
           <p className="max-w-sm text-black/70 text-lg">A celebration of the pieces you made your own. These prints have sold out — explore their stories, then discover your next favourite.</p>
         </header>
         <div className="flex flex-col gap-16">{products.map((p, i) => <article key={p.id} className={`grid md:grid-cols-2 gap-8 items-center ${i % 2 ? "md:[&>a]:order-2" : ""}`}>
