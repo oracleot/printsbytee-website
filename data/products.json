@@ -414,21 +414,6 @@
     "createdAt": "2026-07-19T00:00:00Z"
   },
   {
-    "id": "pbt-030",
-    "slug": "fringe-bubu-yellow",
-    "name": "Fringe Bubu — Yellow",
-    "category": "fringe-bubu",
-    "description": "The Fringe Bubu in radiant yellow — a flowing statement silhouette finished with playful fringe.",
-    "price": 30,
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "images": ["/fringe-bubu-yellow.jpg"],
-    "inStock": true,
-    "notifyMeEnabled": false,
-    "featured": false,
-    "isNew": true,
-    "createdAt": "2026-07-19T00:00:00Z"
-  },
-  {
     "id": "pbt-031",
     "slug": "aso-oke-kimono-purple",
     "name": "Aso Oke Kimono — Purple",

@@ -5,10 +5,11 @@ import { getCategoryLabel, getSizeChart, type Product } from "@/lib/products";
 
 interface ProductAccordionProps {
   category: Product["category"];
+  sizeChartCategory?: Product["category"];
 }
 
-export function ProductAccordion({ category }: ProductAccordionProps) {
-  const chart = getSizeChart(category);
+export function ProductAccordion({ category, sizeChartCategory }: ProductAccordionProps) {
+  const chart = getSizeChart(sizeChartCategory ?? category);
 
   return (
     <Accordion className="w-full">

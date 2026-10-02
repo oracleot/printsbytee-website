@@ -11,7 +11,7 @@ export function NewArrivals() {
     .slice(0, 3);
 
   return (
-    <section className="bg-cream py-20">
+    <section className="hidden bg-cream py-20 lg:block">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
