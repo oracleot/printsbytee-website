@@ -1,9 +1,11 @@
 "use client";
 
+import { CategorySilhouettes } from "./CategorySilhouettes";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { SoldOutCollectionCard } from "./SoldOutCollectionCard";
 import { ProductCard } from "./ProductCard";
-import { Product, getCategoryLabel } from "@/lib/products";
+import { Product } from "@/lib/products";
 
 interface ProductGridProps {
   products: Product[];
@@ -13,14 +15,6 @@ type CategoryFilter = "all" | Product["category"];
 
 export function ProductGrid({ products }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
-
-  const filters: { value: CategoryFilter; label: string }[] = [
-    { value: "all", label: "All" },
-    ...Array.from(new Set(products.map((product) => product.category))).map((category) => ({
-      value: category,
-      label: getCategoryLabel(category),
-    })),
-  ];
 
   const filteredProducts = activeFilter === "all"
     ? products
@@ -34,25 +28,8 @@ export function ProductGrid({ products }: ProductGridProps) {
 
   return (
     <div className="space-y-8">
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {filters.map((filter) => (
-          <button
-            key={filter.value}
-            type="button"
-            onClick={() => setActiveFilter(filter.value)}
-            aria-pressed={activeFilter === filter.value}
-            className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
-              activeFilter === filter.value
-                ? "bg-black text-cream"
-                : "bg-cream text-black hover:bg-gold hover:text-black"
-            }`}
-          >
-            {filter.label}
-          </button>
-        ))}
-      </div>
-
+      <CategorySilhouettes products={products} active={activeFilter} onChange={setActiveFilter} />
+      <div className="space-y-8">
       {/* Product Count */}
       <p aria-live="polite" className="text-center text-sm text-black/60">
         Showing {sortedProducts.length} {sortedProducts.length === 1 ? "product" : "products"}
@@ -64,6 +41,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           {sortedProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
+          <SoldOutCollectionCard />
         </div>
       ) : (
         <motion.div
@@ -86,6 +64,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           </div>
         </motion.div>
       )}
+      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Metadata } from "next";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { PatternDivider } from "@/components/shared/PatternDivider";
@@ -31,7 +32,8 @@ export default function ProductsPage() {
       {/* Products Grid */}
       <section className="py-12 bg-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ProductGrid products={products} />
+          <div className="flex justify-end mb-8"><Link href="/sold-out" className="text-sm underline underline-offset-4">Explore sold-out favourites ↗</Link></div>
+          <ProductGrid products={products.filter(p => p.inStock || p.availabilityPending)} />
         </div>
       </section>
 
