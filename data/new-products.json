@@ -96,7 +96,7 @@
     "category": "bubu-dress",
     "description": "A relaxed turquoise and black printed silhouette with a flowing pleated black lower panel.",
     "price": 40,
-    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "sizes": ["S", "M", "L"],
     "images": [
       "/bubu_dress.jpg"
     ],
