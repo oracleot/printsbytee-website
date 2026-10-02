@@ -1,3 +1,4 @@
+import { NewArrivals } from "@/components/home/NewArrivals";
 import { HeroSection } from "@/components/home/HeroSection";
 import { StickyScrollReveal } from "@/components/home/StickyScrollReveal";
 import { AnimatedTestimonials } from "@/components/home/AnimatedTestimonials";
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <NewArrivals />
       <StickyScrollReveal />
       <AnimatedTestimonials />
       <PatternDivider />

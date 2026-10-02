@@ -49,7 +49,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           )}
 
           {/* Out of Stock Overlay */}
-          {!product.inStock && (
+          {!product.inStock && !product.availabilityPending && (
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <span className="bg-cream text-black text-sm font-medium px-4 py-2">
                 {outOfStockText}
@@ -109,6 +109,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.name}
           </h3>
           
+          {product.availabilityPending && (
+            <p className="text-black/60 text-sm">{product.price === null ? "Price and availability on request" : "Availability on request"}</p>
+          )}
           {product.price !== null && (
             <p className="text-gold font-semibold text-lg">
               {formatPrice(product.price)}

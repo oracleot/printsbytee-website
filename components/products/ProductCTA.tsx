@@ -42,7 +42,7 @@ export function ProductCTA({ product, selectedSize, onNotifyMe }: ProductCTAProp
       <div className="flex flex-col sm:flex-row gap-3">
         <Button
           onClick={handleEnquire}
-          disabled={!selectedSize}
+          disabled={product.sizes.length > 0 && !selectedSize}
           className="flex-1 bg-black text-cream hover:bg-emerald disabled:opacity-50 disabled:cursor-not-allowed text-base py-6"
         >
           <motion.span whileTap={{ scale: 0.98 }} className="flex items-center gap-2">

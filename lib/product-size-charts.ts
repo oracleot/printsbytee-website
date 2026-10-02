@@ -1,6 +1,6 @@
 import type { ProductCategory, SizeChart } from "./product-types";
 
-export const sizeCharts: Record<ProductCategory, SizeChart> = {
+export const sizeCharts: Partial<Record<ProductCategory, SizeChart>> = {
   "lora-set": {
     category: "lora-set",
     description: "Two-piece crop top and skirt set — African wax print with minimal stretch",

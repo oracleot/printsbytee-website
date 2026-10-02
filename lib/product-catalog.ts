@@ -1,7 +1,19 @@
 import productsData from "@/data/products.json";
+import newProductsData from "@/data/new-products.json";
 import type { Product } from "./product-types";
 
-export const products: Product[] = productsData as Product[];
+const existingProducts = productsData.map((product) => ({
+  ...product,
+  isNew: false,
+}));
+
+const latestProducts = newProductsData.map((product) => ({
+  ...product,
+  detailsPending: true,
+  isNew: true,
+}));
+
+export const products: Product[] = [...existingProducts, ...latestProducts] as Product[];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
