@@ -25,6 +25,10 @@ export const productGradients: Record<string, string> = {
 };
 
 const categoryLabels: Record<ProductCategory, string> = {
+  "bella-set": "Bella Set",
+  "zara-set": "Zara Set",
+  "bubu-set": "Bubu Set",
+  "zuri-dress": "Zuri Dress",
   "lora-set": "Lora Set",
   "aso-oke-kimono": "Aso Oke Kimono Set",
   "fringe-bubu": "Fringe Dress",

@@ -3,29 +3,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProductCard } from "./ProductCard";
-import { Product } from "@/lib/products";
+import { Product, getCategoryLabel } from "@/lib/products";
 
 interface ProductGridProps {
   products: Product[];
 }
 
-type CategoryFilter = "all" | "lora-set" | "aso-oke-kimono" | "fringe-bubu" | "naya-jump-suit" | "lumi-set" | "jasmine-set" | "seline-dress" | "aso-oke-pant" | "ewa-set" | "two-in-one-dungaree";
+type CategoryFilter = "all" | Product["category"];
 
 export function ProductGrid({ products }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
 
   const filters: { value: CategoryFilter; label: string }[] = [
     { value: "all", label: "All" },
-    { value: "ewa-set", label: "Ewa Set" },
-    { value: "lora-set", label: "Lora Set" },
-    { value: "two-in-one-dungaree", label: "2 in 1 Dungaree" },
-    { value: "lumi-set", label: "Lumi Set" },
-    { value: "naya-jump-suit", label: "Naya Jump Suit" },
-    { value: "jasmine-set", label: "Jasmine Set" },
-    { value: "seline-dress", label: "Seline Dress" },
-    { value: "aso-oke-kimono", label: "Aso Oke Kimono Set" },
-    { value: "aso-oke-pant", label: "Aso Oke Pant" },
-    { value: "fringe-bubu", label: "Fringe Dress" },
+    ...Array.from(new Set(products.map((product) => product.category))).map((category) => ({
+      value: category,
+      label: getCategoryLabel(category),
+    })),
   ];
 
   const filteredProducts = activeFilter === "all"

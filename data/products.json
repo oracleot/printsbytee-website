@@ -480,7 +480,7 @@
     "name": "2 in 1 Dungaree",
     "category": "two-in-one-dungaree",
     "description": "A versatile striped two-in-one dungaree with wide-leg trousers, styled beautifully with or without the bib.",
-    "price": 50,
+    "price": 30,
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/two-in-one-dungaree-full.jpg", "/two-in-one-dungaree-half.jpg"],
     "inStock": false,

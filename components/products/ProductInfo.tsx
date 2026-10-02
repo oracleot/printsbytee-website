@@ -63,7 +63,9 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
 
       {/* Stock Status */}
       <div>
-        {product.inStock ? (
+        {product.availabilityPending ? (
+          <span className="text-sm text-black/60">{product.price === null ? "Price and availability on request" : "Availability on request"}</span>
+        ) : product.inStock ? (
           <span className="inline-flex items-center gap-2 text-sm text-emerald font-medium">
             <span className="w-2 h-2 bg-emerald rounded-full" />
             {isLowStock ? "Low Stock" : "In Stock"}
@@ -85,11 +87,13 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
       <hr className="border-border" />
 
       {/* Size Selector */}
-      <ProductSizeSelector
+      {product.sizes.length === 0 ? (
+        <p className="text-sm text-black/60">Contact us to confirm available sizes.</p>
+      ) : <ProductSizeSelector
         sizes={product.sizes}
         selectedSize={selectedSize}
         onSelect={setSelectedSize}
-      />
+      />}
 
       {/* Quantity */}
       <div className="space-y-3">
@@ -119,7 +123,7 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
       />
 
       {/* Product Details Accordion */}
-      <ProductAccordion category={product.category} />
+      {!product.availabilityPending && <ProductAccordion category={product.category} />}
     </motion.div>
   );
 }

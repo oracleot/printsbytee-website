@@ -1,0 +1,200 @@
+[
+  {
+    "id": "pbt-039",
+    "slug": "two-in-one-dungaree-patterned",
+    "name": "2 in 1 Dungaree — Patterned",
+    "category": "two-in-one-dungaree",
+    "description": "A colourful geometric-print dungaree, shown with the bib attached and styled as trousers.",
+    "price": 30,
+    "sizes": [],
+    "images": [
+      "/2_in_1_dungaree_1.jpg",
+      "/2_in_1_dungaree_2.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-040",
+    "slug": "bella-set-aso-oke",
+    "name": "Bella Set — Aso Oke",
+    "category": "bella-set",
+    "description": "A coordinated look with a white lace top, maroon checked trousers and a matching chest pocket.",
+    "price": 50,
+    "sizes": [],
+    "images": [
+      "/bella_set_aso_oke_1.jpg",
+      "/bella_set_aso_oke_2.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-041",
+    "slug": "bella-set-blue",
+    "name": "Bella Set — Blue",
+    "category": "bella-set",
+    "description": "A white lace top with a blue striped pocket, paired with flowing blue striped trousers.",
+    "price": 40,
+    "sizes": [],
+    "images": ["/bella_set_blue.jpg"],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-042",
+    "slug": "bella-set-orange",
+    "name": "Bella Set — Orange",
+    "category": "bella-set",
+    "description": "A white lace top with an orange striped pocket, paired with flowing orange striped trousers.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/bella_set_orange.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-043",
+    "slug": "bella-set-red",
+    "name": "Bella Set — Red",
+    "category": "bella-set",
+    "description": "A white lace top with a red striped pocket, paired with flowing red striped trousers.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/bella_set_red.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-044",
+    "slug": "bubu-set",
+    "name": "Bubu Set",
+    "category": "bubu-set",
+    "description": "A relaxed turquoise and black printed silhouette with a flowing pleated black lower panel.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/bubu_dress.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-045",
+    "slug": "fringe-dress-gold",
+    "name": "Fringe Dress — Bracket Gold",
+    "category": "fringe-bubu",
+    "description": "A black dress with colourful patterned details and a dramatic gold fringe hem.",
+    "price": 38,
+    "sizes": [],
+    "images": [
+      "/fringe_dress_in_bracket_gold.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-046",
+    "slug": "zara-set-black",
+    "name": "Zara Set — Black",
+    "category": "zara-set",
+    "description": "An asymmetric black and white patterned top, paired with white trousers for a striking coordinated look.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/zara_set_black.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-047",
+    "slug": "zara-set-maroon",
+    "name": "Zara Set — Maroon",
+    "category": "zara-set",
+    "description": "An asymmetric maroon and white patterned top, paired with white trousers for a striking coordinated look.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/zara_set_maroon.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-048",
+    "slug": "zara-set-red",
+    "name": "Zara Set — Red",
+    "category": "zara-set",
+    "description": "An asymmetric red and white patterned top, paired with white trousers for a striking coordinated look.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/zara_set_red.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  },
+  {
+    "id": "pbt-049",
+    "slug": "zuri-dress",
+    "name": "Zuri Dress",
+    "category": "zuri-dress",
+    "description": "A vibrant patterned midi dress with a flowing black panel and a bold, colourful silhouette.",
+    "price": 40,
+    "sizes": [],
+    "images": [
+      "/zuri_dress.jpg"
+    ],
+    "inStock": false,
+    "availabilityPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-02T00:00:00Z"
+  }
+]

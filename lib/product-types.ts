@@ -1,4 +1,8 @@
 export type ProductCategory =
+  | "bella-set"
+  | "zara-set"
+  | "bubu-set"
+  | "zuri-dress"
   | "lora-set"
   | "aso-oke-kimono"
   | "fringe-bubu"
@@ -24,6 +28,7 @@ export interface Product {
   sizes: string[];
   images: string[];
   inStock: boolean;
+  availabilityPending?: boolean;
   notifyMeEnabled: boolean;
   featured: boolean;
   isNew?: boolean;
