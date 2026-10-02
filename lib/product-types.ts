@@ -1,7 +1,7 @@
 export type ProductCategory =
   | "bella-set"
   | "zara-set"
-  | "bubu-set"
+  | "bubu-dress"
   | "zuri-dress"
   | "lora-set"
   | "aso-oke-kimono"
