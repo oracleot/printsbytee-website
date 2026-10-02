@@ -6,7 +6,7 @@
     "category": "two-in-one-dungaree",
     "description": "A colourful geometric-print dungaree, shown with the bib attached and styled as trousers.",
     "price": 30,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/2_in_1_dungaree_1.jpg",
       "/2_in_1_dungaree_2.jpg"
@@ -25,7 +25,7 @@
     "category": "bella-set",
     "description": "A coordinated look with a white lace top, maroon checked trousers and a matching chest pocket.",
     "price": 50,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/bella_set_aso_oke_1.jpg",
       "/bella_set_aso_oke_2.jpg"
@@ -44,7 +44,7 @@
     "category": "bella-set",
     "description": "A white lace top with a blue striped pocket, paired with flowing blue striped trousers.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": ["/bella_set_blue.jpg"],
     "inStock": true,
     "availabilityPending": false,
@@ -60,7 +60,7 @@
     "category": "bella-set",
     "description": "A white lace top with an orange striped pocket, paired with flowing orange striped trousers.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/bella_set_orange.jpg"
     ],
@@ -78,7 +78,7 @@
     "category": "bella-set",
     "description": "A white lace top with a red striped pocket, paired with flowing red striped trousers.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/bella_set_red.jpg"
     ],
@@ -96,7 +96,7 @@
     "category": "bubu-dress",
     "description": "A relaxed turquoise and black printed silhouette with a flowing pleated black lower panel.",
     "price": 40,
-    "sizes": ["S", "M", "L"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/bubu_dress.jpg"
     ],
@@ -114,7 +114,7 @@
     "category": "fringe-bubu",
     "description": "A black dress with colourful patterned details and a dramatic gold fringe hem.",
     "price": 38,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/fringe_dress_in_bracket_gold.jpg"
     ],
@@ -132,7 +132,7 @@
     "category": "zara-set",
     "description": "An asymmetric black and white patterned top, paired with white trousers for a striking coordinated look.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/zara_set_black.jpg"
     ],
@@ -150,7 +150,7 @@
     "category": "zara-set",
     "description": "An asymmetric maroon and white patterned top, paired with white trousers for a striking coordinated look.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/zara_set_maroon.jpg"
     ],
@@ -168,7 +168,7 @@
     "category": "zara-set",
     "description": "An asymmetric red and white patterned top, paired with white trousers for a striking coordinated look.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/zara_set_red.jpg"
     ],
@@ -186,7 +186,7 @@
     "category": "zuri-dress",
     "description": "A vibrant patterned midi dress with a flowing black panel and a bold, colourful silhouette.",
     "price": 40,
-    "sizes": [],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "images": [
       "/zuri_dress.jpg"
     ],
