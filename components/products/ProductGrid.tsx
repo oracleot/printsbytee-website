@@ -1,5 +1,6 @@
 "use client";
 
+import { PrototypeCategories } from "./PrototypeCategories";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProductCard } from "./ProductCard";
@@ -11,7 +12,7 @@ interface ProductGridProps {
 
 type CategoryFilter = "all" | Product["category"];
 
-export function ProductGrid({ products }: ProductGridProps) {
+export function ProductGrid({ products, prototypeVariant }: ProductGridProps & { prototypeVariant?: string }) {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
 
   const filters: { value: CategoryFilter; label: string }[] = [
@@ -33,7 +34,8 @@ export function ProductGrid({ products }: ProductGridProps) {
   });
 
   return (
-    <div className="space-y-8">
+    <div className={prototypeVariant === "C" ? "flex flex-col lg:flex-row gap-10" : "space-y-8"}>
+      {prototypeVariant ? <PrototypeCategories products={products} active={activeFilter} onChange={setActiveFilter} variant={prototypeVariant} /> : <>
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center justify-center gap-2">
         {filters.map((filter) => (
@@ -53,6 +55,8 @@ export function ProductGrid({ products }: ProductGridProps) {
         ))}
       </div>
 
+      </>}
+      <div className="flex-1 min-w-0 space-y-8">
       {/* Product Count */}
       <p aria-live="polite" className="text-center text-sm text-black/60">
         Showing {sortedProducts.length} {sortedProducts.length === 1 ? "product" : "products"}
@@ -86,6 +90,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           </div>
         </motion.div>
       )}
+      </div>
     </div>
   );
 }
