@@ -27,8 +27,8 @@ export function ProductGrid({ products }: ProductGridProps) {
     : products.filter((product) => product.category === activeFilter);
 
   const sortedProducts = [...filteredProducts].sort((left, right) => {
-    if (left.inStock !== right.inStock) return left.inStock ? -1 : 1;
     if (left.isNew !== right.isNew) return left.isNew ? -1 : 1;
+    if (left.inStock !== right.inStock) return left.inStock ? -1 : 1;
     return new Date(right.createdAt).getTime() - new Date(left.createdAt).getTime();
   });
 

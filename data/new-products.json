@@ -11,8 +11,8 @@
       "/2_in_1_dungaree_1.jpg",
       "/2_in_1_dungaree_2.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -30,8 +30,8 @@
       "/bella_set_aso_oke_1.jpg",
       "/bella_set_aso_oke_2.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -46,8 +46,8 @@
     "price": 40,
     "sizes": [],
     "images": ["/bella_set_blue.jpg"],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -64,8 +64,8 @@
     "images": [
       "/bella_set_orange.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -82,8 +82,8 @@
     "images": [
       "/bella_set_red.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -100,8 +100,8 @@
     "images": [
       "/bubu_dress.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -118,8 +118,8 @@
     "images": [
       "/fringe_dress_in_bracket_gold.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -136,8 +136,8 @@
     "images": [
       "/zara_set_black.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -154,8 +154,8 @@
     "images": [
       "/zara_set_maroon.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -172,8 +172,8 @@
     "images": [
       "/zara_set_red.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,
@@ -190,8 +190,8 @@
     "images": [
       "/zuri_dress.jpg"
     ],
-    "inStock": false,
-    "availabilityPending": true,
+    "inStock": true,
+    "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
     "isNew": true,

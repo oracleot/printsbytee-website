@@ -29,6 +29,7 @@ export interface Product {
   images: string[];
   inStock: boolean;
   availabilityPending?: boolean;
+  detailsPending?: boolean;
   notifyMeEnabled: boolean;
   featured: boolean;
   isNew?: boolean;

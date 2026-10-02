@@ -123,7 +123,7 @@ export function ProductInfo({ product, onNotifyMe }: ProductInfoProps) {
       />
 
       {/* Product Details Accordion */}
-      {!product.availabilityPending && <ProductAccordion category={product.category} />}
+      {!product.detailsPending && <ProductAccordion category={product.category} />}
     </motion.div>
   );
 }
