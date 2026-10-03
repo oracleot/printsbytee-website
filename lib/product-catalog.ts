@@ -13,7 +13,7 @@ const latestProducts = newProductsData.map((product) => ({
   isNew: true,
 }));
 
-const bubuCategories = new Set(["bubu-dress", "fringe-bubu", "kora-bubu", "hawa-bubu"]);
+const bubuCategories = new Set(["bubu-dress", "kora-bubu", "hawa-bubu"]);
 
 export const products: Product[] = ([...existingProducts, ...latestProducts] as Product[])
   .map((product) => bubuCategories.has(product.category)
