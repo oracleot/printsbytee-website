@@ -32,7 +32,7 @@ const categoryLabels: Record<ProductCategory, string> = {
   "zuri-dress": "Zuri Dress",
   "lora-set": "Lora Set",
   "aso-oke-kimono": "Aso Oke Kimono Set",
-  "fringe-bubu": "Fringe Dress",
+  "fringe-bubu": "Fringe Set",
   "naya-jump-suit": "Naya Jump Suit",
   "lumi-set": "Lumi Set",
   "jasmine-set": "Jasmine Set",
