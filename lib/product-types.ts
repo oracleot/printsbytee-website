@@ -1,4 +1,5 @@
 export type ProductCategory =
+  | "bubu"
   | "bella-set"
   | "zara-set"
   | "bubu-dress"
@@ -23,6 +24,7 @@ export interface Product {
   slug: string;
   name: string;
   category: ProductCategory;
+  sizeChartCategory?: ProductCategory;
   description: string;
   price: number | null;
   sizes: string[];

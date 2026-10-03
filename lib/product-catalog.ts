@@ -13,7 +13,12 @@ const latestProducts = newProductsData.map((product) => ({
   isNew: true,
 }));
 
-export const products: Product[] = [...existingProducts, ...latestProducts] as Product[];
+const bubuCategories = new Set(["bubu-dress", "fringe-bubu", "kora-bubu", "hawa-bubu"]);
+
+export const products: Product[] = ([...existingProducts, ...latestProducts] as Product[])
+  .map((product) => bubuCategories.has(product.category)
+    ? { ...product, category: "bubu", sizeChartCategory: product.category }
+    : product);
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
-import { getProductImage, formatPrice, getCategoryLabel, Product } from "@/lib/products";
+import { getProductImage, formatPrice, Product } from "@/lib/products";
 import { Badge } from "@/components/ui/badge";
 
 interface ProductCardProps {
@@ -87,19 +87,6 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           </div>
 
-          {/* Category Circle */}
-          <div className="absolute top-3 left-3">
-            <div
-              className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm flex items-center justify-center"
-              aria-label={getCategoryLabel(product.category) ?? 'Unknown category'}
-              title={getCategoryLabel(product.category) ?? 'Unknown category'}
-              role="img"
-            >
-              <span className="text-cream text-[10px] font-bold tracking-wide uppercase" aria-hidden="true">
-                {getCategoryLabel(product.category)?.charAt(0) || '?'}
-              </span>
-            </div>
-          </div>
 
         </div>
 
