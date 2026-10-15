@@ -20,10 +20,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = `${product.name} — PrintsbyTee`;
   const description = product.description.slice(0, 160);
   const url = `/products/${product.slug}`;
-  const images = product.images.slice(0, 1).map((image) => ({
-    url: image,
+  const images = [{
+    url: `${url}/share-image`,
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
     alt: product.name,
-  }));
+  }];
 
   return {
     title,
