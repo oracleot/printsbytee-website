@@ -17,6 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.printsbytee.co.uk"),
   title: "PrintsbyTee — African Print Ready-to-Wear",
   description: "Bold, beautiful African fashion for diaspora women. Premium ready-to-wear pieces that celebrate culture with contemporary style.",
   icons: {
