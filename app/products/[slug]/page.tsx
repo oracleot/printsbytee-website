@@ -17,9 +17,33 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Product Not Found — PrintsbyTee" };
   }
 
+  const title = `${product.name} — PrintsbyTee`;
+  const description = product.description.slice(0, 160);
+  const url = `/products/${product.slug}`;
+  const images = product.images.slice(0, 1).map((image) => ({
+    url: image,
+    alt: product.name,
+  }));
+
   return {
-    title: `${product.name} — PrintsbyTee`,
-    description: product.description.slice(0, 160),
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "PrintsbyTee",
+      locale: "en_GB",
+      type: "website",
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images,
+    },
   };
 }
 
