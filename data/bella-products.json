@@ -1,0 +1,22 @@
+[
+  {
+    "id": "pbt-050",
+    "slug": "bella-set-aso-oke-wine",
+    "name": "Bella set Aso-oke (wine)",
+    "category": "bella-set",
+    "description": "A white lace top with a matching wine striped pocket, paired with wine striped Aso-oke wide-leg trousers.",
+    "price": 50,
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/bella_set_aso_oke_wine_1.jpg",
+      "/bella_set_aso_oke_wine_2.jpg"
+    ],
+    "inStock": true,
+    "availabilityPending": false,
+    "detailsPending": true,
+    "notifyMeEnabled": false,
+    "featured": false,
+    "isNew": true,
+    "createdAt": "2026-10-15T00:00:00Z"
+  }
+]

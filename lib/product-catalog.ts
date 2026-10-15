@@ -1,5 +1,6 @@
 import productsData from "@/data/products.json";
 import newProductsData from "@/data/new-products.json";
+import bellaProductsData from "@/data/bella-products.json";
 import type { Product } from "./product-types";
 
 const existingProducts = productsData.map((product) => ({
@@ -15,7 +16,7 @@ const latestProducts = newProductsData.map((product) => ({
 
 const bubuCategories = new Set(["bubu-dress", "kora-bubu", "hawa-bubu"]);
 
-export const products: Product[] = ([...existingProducts, ...latestProducts] as Product[])
+export const products: Product[] = ([...existingProducts, ...latestProducts, ...bellaProductsData] as Product[])
   .map((product) => bubuCategories.has(product.category)
     ? { ...product, category: "bubu", sizeChartCategory: product.category }
     : product);
