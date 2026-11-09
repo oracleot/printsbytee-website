@@ -82,7 +82,7 @@
     "images": [
       "/bella_set_red.jpg"
     ],
-    "inStock": true,
+    "inStock": false,
     "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
@@ -100,7 +100,7 @@
     "images": [
       "/bubu_dress.jpg"
     ],
-    "inStock": true,
+    "inStock": false,
     "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
@@ -154,7 +154,7 @@
     "images": [
       "/zara_set_maroon.jpg"
     ],
-    "inStock": true,
+    "inStock": false,
     "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
@@ -172,7 +172,7 @@
     "images": [
       "/zara_set_red.jpg"
     ],
-    "inStock": true,
+    "inStock": false,
     "availabilityPending": false,
     "notifyMeEnabled": false,
     "featured": false,
